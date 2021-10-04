@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8736FF862BDC85B873DC9E69 /* Pods_Cohere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D155986BE00A90B773568F3 /* Pods_Cohere.framework */; };
 		C269B7BB270B47C500CC65C4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269B7BA270B47C500CC65C4 /* WelcomeViewController.swift */; };
 		C269B7BD270B56BE00CC65C4 /* LoginAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269B7BC270B56BE00CC65C4 /* LoginAccountViewController.swift */; };
+		C2B3B045270B924600F67850 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2B3B044270B924600F67850 /* GoogleService-Info.plist */; };
 		C2BCA54B2709CA5900CE6C08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BCA54A2709CA5900CE6C08 /* AppDelegate.swift */; };
 		C2BCA54D2709CA5900CE6C08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BCA54C2709CA5900CE6C08 /* SceneDelegate.swift */; };
 		C2BCA54F2709CA5900CE6C08 /* RegisterAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BCA54E2709CA5900CE6C08 /* RegisterAccountViewController.swift */; };
@@ -18,8 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D155986BE00A90B773568F3 /* Pods_Cohere.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cohere.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C10383A4D2C2CA6FACE658EA /* Pods-Cohere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cohere.release.xcconfig"; path = "Target Support Files/Pods-Cohere/Pods-Cohere.release.xcconfig"; sourceTree = "<group>"; };
 		C269B7BA270B47C500CC65C4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C269B7BC270B56BE00CC65C4 /* LoginAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAccountViewController.swift; sourceTree = "<group>"; };
+		C2B3B044270B924600F67850 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C2BCA5472709CA5900CE6C08 /* Cohere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cohere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2BCA54A2709CA5900CE6C08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2BCA54C2709CA5900CE6C08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +33,7 @@
 		C2BCA5532709CA5B00CE6C08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2BCA5562709CA5B00CE6C08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2BCA5582709CA5B00CE6C08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D00884638B3FF88D14FCF01F /* Pods-Cohere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cohere.debug.xcconfig"; path = "Target Support Files/Pods-Cohere/Pods-Cohere.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,12 +41,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8736FF862BDC85B873DC9E69 /* Pods_Cohere.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CE26EA4B167678271188DED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D155986BE00A90B773568F3 /* Pods_Cohere.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C269B7B9270B479900CC65C4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +71,8 @@
 			children = (
 				C2BCA5492709CA5900CE6C08 /* Cohere */,
 				C2BCA5482709CA5900CE6C08 /* Products */,
+				DF427C6A56F8A3E9D89A033B /* Pods */,
+				4CE26EA4B167678271188DED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +94,7 @@
 				C2BCA5532709CA5B00CE6C08 /* Assets.xcassets */,
 				C2BCA5552709CA5B00CE6C08 /* LaunchScreen.storyboard */,
 				C2BCA5582709CA5B00CE6C08 /* Info.plist */,
+				C2B3B044270B924600F67850 /* GoogleService-Info.plist */,
 			);
 			path = Cohere;
 			sourceTree = "<group>";
@@ -89,6 +107,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		DF427C6A56F8A3E9D89A033B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D00884638B3FF88D14FCF01F /* Pods-Cohere.debug.xcconfig */,
+				C10383A4D2C2CA6FACE658EA /* Pods-Cohere.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,9 +123,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2BCA55B2709CA5B00CE6C08 /* Build configuration list for PBXNativeTarget "Cohere" */;
 			buildPhases = (
+				4B1BD95A305992F45A212B7D /* [CP] Check Pods Manifest.lock */,
 				C2BCA5432709CA5900CE6C08 /* Sources */,
 				C2BCA5442709CA5900CE6C08 /* Frameworks */,
 				C2BCA5452709CA5900CE6C08 /* Resources */,
+				DB8FE2025A3E63885153CB0E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -148,12 +177,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2BCA5572709CA5B00CE6C08 /* LaunchScreen.storyboard in Resources */,
+				C2B3B045270B924600F67850 /* GoogleService-Info.plist in Resources */,
 				C2BCA5542709CA5B00CE6C08 /* Assets.xcassets in Resources */,
 				C2BCA5522709CA5900CE6C08 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4B1BD95A305992F45A212B7D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cohere-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB8FE2025A3E63885153CB0E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cohere/Pods-Cohere-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cohere/Pods-Cohere-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cohere/Pods-Cohere-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C2BCA5432709CA5900CE6C08 /* Sources */ = {
@@ -308,13 +380,14 @@
 		};
 		C2BCA55C2709CA5B00CE6C08 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D00884638B3FF88D14FCF01F /* Pods-Cohere.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Wing It/Info.plist";
+				INFOPLIST_FILE = Cohere/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -326,7 +399,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Cheung.Wing-It";
+				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Cheung.Cohere";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -336,13 +409,14 @@
 		};
 		C2BCA55D2709CA5B00CE6C08 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C10383A4D2C2CA6FACE658EA /* Pods-Cohere.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Wing It/Info.plist";
+				INFOPLIST_FILE = Cohere/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -354,7 +428,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Cheung.Wing-It";
+				PRODUCT_BUNDLE_IDENTIFIER = "Chris-Cheung.Cohere";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

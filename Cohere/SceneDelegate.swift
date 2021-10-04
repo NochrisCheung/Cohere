@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  Wing It
+//  Cohere
 //
 //  Created by Chiu Wing Cheung on 03/10/2021.
 //
