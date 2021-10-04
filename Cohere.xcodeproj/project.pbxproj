@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		C269B7BA270B47C500CC65C4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C269B7BC270B56BE00CC65C4 /* LoginAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAccountViewController.swift; sourceTree = "<group>"; };
-		C2BCA5472709CA5900CE6C08 /* Wing It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wing It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2BCA5472709CA5900CE6C08 /* Cohere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cohere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2BCA54A2709CA5900CE6C08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2BCA54C2709CA5900CE6C08 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C2BCA54E2709CA5900CE6C08 /* RegisterAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountViewController.swift; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		C2BCA53E2709CA5900CE6C08 = {
 			isa = PBXGroup;
 			children = (
-				C2BCA5492709CA5900CE6C08 /* Wing It */,
+				C2BCA5492709CA5900CE6C08 /* Cohere */,
 				C2BCA5482709CA5900CE6C08 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,12 +62,12 @@
 		C2BCA5482709CA5900CE6C08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C2BCA5472709CA5900CE6C08 /* Wing It.app */,
+				C2BCA5472709CA5900CE6C08 /* Cohere.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C2BCA5492709CA5900CE6C08 /* Wing It */ = {
+		C2BCA5492709CA5900CE6C08 /* Cohere */ = {
 			isa = PBXGroup;
 			children = (
 				C269B7B9270B479900CC65C4 /* Controller */,
@@ -78,7 +78,7 @@
 				C2BCA5552709CA5B00CE6C08 /* LaunchScreen.storyboard */,
 				C2BCA5582709CA5B00CE6C08 /* Info.plist */,
 			);
-			path = "Wing It";
+			path = Cohere;
 			sourceTree = "<group>";
 		};
 		C2BCA55E270B43A800CE6C08 /* Views */ = {
@@ -92,9 +92,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C2BCA5462709CA5900CE6C08 /* Wing It */ = {
+		C2BCA5462709CA5900CE6C08 /* Cohere */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C2BCA55B2709CA5B00CE6C08 /* Build configuration list for PBXNativeTarget "Wing It" */;
+			buildConfigurationList = C2BCA55B2709CA5B00CE6C08 /* Build configuration list for PBXNativeTarget "Cohere" */;
 			buildPhases = (
 				C2BCA5432709CA5900CE6C08 /* Sources */,
 				C2BCA5442709CA5900CE6C08 /* Frameworks */,
@@ -104,9 +104,9 @@
 			);
 			dependencies = (
 			);
-			name = "Wing It";
+			name = Cohere;
 			productName = "Wing It";
-			productReference = C2BCA5472709CA5900CE6C08 /* Wing It.app */;
+			productReference = C2BCA5472709CA5900CE6C08 /* Cohere.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -124,7 +124,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C2BCA5422709CA5900CE6C08 /* Build configuration list for PBXProject "Wing It" */;
+			buildConfigurationList = C2BCA5422709CA5900CE6C08 /* Build configuration list for PBXProject "Cohere" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -137,7 +137,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C2BCA5462709CA5900CE6C08 /* Wing It */,
+				C2BCA5462709CA5900CE6C08 /* Cohere */,
 			);
 		};
 /* End PBXProject section */
@@ -365,7 +365,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C2BCA5422709CA5900CE6C08 /* Build configuration list for PBXProject "Wing It" */ = {
+		C2BCA5422709CA5900CE6C08 /* Build configuration list for PBXProject "Cohere" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2BCA5592709CA5B00CE6C08 /* Debug */,
@@ -374,7 +374,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C2BCA55B2709CA5B00CE6C08 /* Build configuration list for PBXNativeTarget "Wing It" */ = {
+		C2BCA55B2709CA5B00CE6C08 /* Build configuration list for PBXNativeTarget "Cohere" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2BCA55C2709CA5B00CE6C08 /* Debug */,
