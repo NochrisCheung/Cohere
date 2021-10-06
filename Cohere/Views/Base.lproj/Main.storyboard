@@ -108,7 +108,7 @@
                                     <action selector="registerPressed:" destination="ZbO-oH-BGN" eventType="touchUpInside" id="qPv-mK-GSM"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zif-2w-pAa">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zif-2w-pAa">
                                 <rect key="frame" x="44" y="401" width="326" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
@@ -146,10 +146,10 @@
             </objects>
             <point key="canvasLocation" x="4602.898550724638" y="-986.38392857142856"/>
         </scene>
-        <!--Login Account View Controller-->
+        <!--Log In Account View Controller-->
         <scene sceneID="KeJ-Gd-WAb">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="52W-2Z-vKi" customClass="LoginAccountViewController" customModule="Cohere" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="52W-2Z-vKi" customClass="LogInAccountViewController" customModule="Cohere" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EQ-qK-7Bo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -160,7 +160,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" textContentType="email"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="qwerty" borderStyle="roundedRect" placeholder="qwerty" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="SAi-Qz-gyu">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="qwerty" borderStyle="roundedRect" placeholder="qwerty" adjustsFontSizeToFit="NO" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="SAi-Qz-gyu">
                                 <rect key="frame" x="44" y="314" width="326" height="34"/>
                                 <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -177,23 +177,38 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
                                     <color key="baseBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="loginPressed:" destination="52W-2Z-vKi" eventType="touchUpInside" id="v1t-Ru-pe1"/>
-                                </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mm9-y3-AyP">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mm9-y3-AyP">
                                 <rect key="frame" x="44" y="401" width="326" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NQ-GY-2Cb">
+                                <rect key="frame" x="77" y="428" width="260" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="agG-pF-Xsm"/>
+                                    <constraint firstAttribute="height" constant="40" id="iry-nF-Hyf"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Login">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                    <color key="baseBackgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="LogInPressed:" destination="52W-2Z-vKi" eventType="touchUpInside" id="PKY-Qw-eO3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yoT-Pn-dv4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ZyQ-Oh-ceh" firstAttribute="centerX" secondItem="5EQ-qK-7Bo" secondAttribute="centerX" id="Exz-0f-cv0"/>
                             <constraint firstItem="IaW-RC-OCF" firstAttribute="centerX" secondItem="5EQ-qK-7Bo" secondAttribute="centerX" id="FkU-uw-2ic"/>
+                            <constraint firstItem="yoT-Pn-dv4" firstAttribute="trailing" secondItem="9NQ-GY-2Cb" secondAttribute="trailing" constant="77" id="Ir8-8o-TdE"/>
                             <constraint firstItem="SAi-Qz-gyu" firstAttribute="centerX" secondItem="5EQ-qK-7Bo" secondAttribute="centerX" id="Q6e-4s-SDf"/>
+                            <constraint firstItem="9NQ-GY-2Cb" firstAttribute="leading" secondItem="yoT-Pn-dv4" secondAttribute="leading" constant="77" id="RVi-Us-EJT"/>
+                            <constraint firstItem="9NQ-GY-2Cb" firstAttribute="top" secondItem="Mm9-y3-AyP" secondAttribute="bottom" constant="10" id="SrH-fH-cyJ"/>
                             <constraint firstItem="IaW-RC-OCF" firstAttribute="top" secondItem="yoT-Pn-dv4" secondAttribute="top" constant="172" id="Tqk-Se-qc4"/>
                             <constraint firstItem="yoT-Pn-dv4" firstAttribute="trailing" secondItem="SAi-Qz-gyu" secondAttribute="trailing" constant="44" id="Yyw-qe-cv8"/>
                             <constraint firstItem="ZyQ-Oh-ceh" firstAttribute="top" secondItem="SAi-Qz-gyu" secondAttribute="bottom" constant="80" id="cNX-VC-Bzc"/>
@@ -213,17 +228,17 @@
                         <outlet property="emailTextField" destination="IaW-RC-OCF" id="Dzc-oP-ILw"/>
                         <outlet property="errorMessage" destination="Mm9-y3-AyP" id="ca6-Po-K4R"/>
                         <outlet property="passwordTextField" destination="SAi-Qz-gyu" id="sWD-Lc-h41"/>
-                        <segue destination="NKO-Nz-vMT" kind="show" identifier="LoginSuccessfulSegue" id="Sw5-3g-Tsu"/>
+                        <segue destination="NKO-Nz-vMT" kind="show" identifier="LogInSuccessfulSegue" id="Sw5-3g-Tsu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ksx-5X-8Ao" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4602.898550724638" y="-260.49107142857144"/>
         </scene>
-        <!--Events-->
+        <!--Home View Controller-->
         <scene sceneID="Ixg-CY-noD">
             <objects>
-                <viewController id="8OJ-dN-mWr" customClass="HomeViewController" customModule="Cohere" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home View Controller" id="8OJ-dN-mWr" customClass="HomeViewController" customModule="Cohere" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fpv-Mx-tA1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -245,10 +260,10 @@
             </objects>
             <point key="canvasLocation" x="6419" y="-986"/>
         </scene>
-        <!--New Event-->
+        <!--New Event View Controller-->
         <scene sceneID="Pgl-XU-C03">
             <objects>
-                <viewController id="BY0-XW-9nE" sceneMemberID="viewController">
+                <viewController title="New Event View Controller" id="BY0-XW-9nE" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uNp-Ps-JJ1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -262,10 +277,10 @@
             </objects>
             <point key="canvasLocation" x="6419" y="-260"/>
         </scene>
-        <!--Profile-->
+        <!--Profile View Controller-->
         <scene sceneID="AHB-GU-PmT">
             <objects>
-                <viewController id="t6w-Fp-MTb" customClass="ProfileViewController" customModule="Cohere" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Profile View Controller" id="t6w-Fp-MTb" customClass="ProfileViewController" customModule="Cohere" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="99J-w1-7E6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -335,7 +350,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wlD-ad-77r"/>
+        <segue reference="Sw5-3g-Tsu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemOrangeColor"/>
     <resources>
