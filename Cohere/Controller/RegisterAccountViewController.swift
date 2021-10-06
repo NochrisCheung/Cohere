@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RegisterViewController.swift
 //  Cohere
 //
 //  Created by Chiu Wing Cheung on 03/10/2021.
@@ -23,10 +23,13 @@ class RegisterAccountViewController: UIViewController {
                 if let e = error {
                     self.errorMessage.isHidden = false
                     self.errorMessage.text = e.localizedDescription
+                    print(e.localizedDescription)
                 } else {
                     //Navigate to user landing page
                     self.errorMessage.isHidden = true
+                    print("account register successful")
                     self.performSegue(withIdentifier: "RegisterSuccessfulSegue", sender: self)
+                    
                 }
             }
             
