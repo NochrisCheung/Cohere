@@ -3,6 +3,7 @@
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -71,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3755.0724637681164" y="-638.16964285714278"/>
+            <point key="canvasLocation" x="3723" y="-638"/>
         </scene>
         <!--Register Account View Controller-->
         <scene sceneID="Pkc-mZ-k5g">
@@ -83,13 +84,13 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="SH4-DD-d7B">
                                 <rect key="frame" x="44" y="260" width="326" height="34"/>
-                                <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="qhj-wO-hIp">
                                 <rect key="frame" x="44" y="314" width="326" height="34"/>
-                                <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                             </textField>
@@ -149,20 +150,20 @@
         <!--Log In Account View Controller-->
         <scene sceneID="KeJ-Gd-WAb">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="52W-2Z-vKi" customClass="LogInAccountViewController" customModule="Cohere" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="52W-2Z-vKi" customClass="LogInAccountViewController" customModule="Cohere" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EQ-qK-7Bo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="c@c.com" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="IaW-RC-OCF">
                                 <rect key="frame" x="44" y="260" width="326" height="34"/>
-                                <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="qwerty" borderStyle="roundedRect" placeholder="qwerty" adjustsFontSizeToFit="NO" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="SAi-Qz-gyu">
                                 <rect key="frame" x="44" y="314" width="326" height="34"/>
-                                <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                             </textField>
@@ -254,28 +255,87 @@
                         <viewLayoutGuide key="safeArea" id="Nse-5r-Z7t"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Events" image="house.circle" catalog="system" id="03l-2r-36K"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="house.fill" catalog="system" id="03l-2r-36K"/>
+                    <connections>
+                        <segue destination="u5T-aW-hBK" kind="presentation" identifier="AddNewEventSegue" id="ipi-SZ-1cB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Gv-hq-iD8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6419" y="-986"/>
         </scene>
-        <!--New Event View Controller-->
+        <!--Friend View Controller-->
         <scene sceneID="Pgl-XU-C03">
             <objects>
-                <viewController title="New Event View Controller" id="BY0-XW-9nE" sceneMemberID="viewController">
+                <viewController title="Friend View Controller" id="BY0-XW-9nE" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uNp-Ps-JJ1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="gt6-er-3qU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="New Event" image="plus.circle" catalog="system" id="zEh-NL-boX"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="person.3.fill" catalog="system" id="zEh-NL-boX"/>
                     <navigationItem key="navigationItem" id="bwd-Pf-sSf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Nm-me-CZ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6419" y="-260"/>
+        </scene>
+        <!--Add New Event View Controller-->
+        <scene sceneID="wEb-Pr-VPn">
+            <objects>
+                <viewController id="u5T-aW-hBK" customClass="AddNewEventViewController" customModule="Cohere" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dcz-zF-P1n">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mp-Bh-eNm">
+                                <rect key="frame" x="15" y="15" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Fpx-eV-gWt"/>
+                                    <constraint firstAttribute="width" constant="20" id="OlX-Ff-qj0"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <imageReference key="image" image="xmark.circle" catalog="system" symbolScale="large"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="u5T-aW-hBK" eventType="touchUpInside" id="ZTX-hD-ahN"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Plan Your Event!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Lk-8I-OXu">
+                                <rect key="frame" x="15" y="55" width="251" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eLW-nq-D0g">
+                                <rect key="frame" x="0.0" y="105" width="414" height="703"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mAm-FV-0zG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eLW-nq-D0g" firstAttribute="top" secondItem="0Lk-8I-OXu" secondAttribute="bottom" constant="20" id="0ry-4R-xFb"/>
+                            <constraint firstItem="mAm-FV-0zG" firstAttribute="bottom" secondItem="eLW-nq-D0g" secondAttribute="bottom" id="4f3-DS-Hah"/>
+                            <constraint firstItem="mAm-FV-0zG" firstAttribute="trailing" secondItem="eLW-nq-D0g" secondAttribute="trailing" id="73V-4J-ndv"/>
+                            <constraint firstItem="3mp-Bh-eNm" firstAttribute="top" secondItem="mAm-FV-0zG" secondAttribute="top" constant="15" id="Czg-sz-SXf"/>
+                            <constraint firstItem="0Lk-8I-OXu" firstAttribute="leading" secondItem="mAm-FV-0zG" secondAttribute="leading" constant="15" id="Dpd-A5-dmx"/>
+                            <constraint firstItem="eLW-nq-D0g" firstAttribute="leading" secondItem="mAm-FV-0zG" secondAttribute="leading" id="Fjv-sO-Ykm"/>
+                            <constraint firstItem="0Lk-8I-OXu" firstAttribute="top" secondItem="3mp-Bh-eNm" secondAttribute="bottom" constant="20" id="PmI-AQ-DVT"/>
+                            <constraint firstItem="mAm-FV-0zG" firstAttribute="bottom" secondItem="eLW-nq-D0g" secondAttribute="bottom" id="UcH-Q4-hBo"/>
+                            <constraint firstItem="eLW-nq-D0g" firstAttribute="bottom" secondItem="mAm-FV-0zG" secondAttribute="bottom" id="bHu-92-5kf"/>
+                            <constraint firstItem="3mp-Bh-eNm" firstAttribute="leading" secondItem="mAm-FV-0zG" secondAttribute="leading" constant="15" id="ezE-Py-3lP"/>
+                            <constraint firstItem="eLW-nq-D0g" firstAttribute="trailing" secondItem="mAm-FV-0zG" secondAttribute="trailing" id="mTd-S0-9zQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="eLW-nq-D0g" id="LsR-Sf-t8v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bp1-bo-Eln" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7337.68115942029" y="-986.38392857142856"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="AHB-GU-PmT">
@@ -299,7 +359,7 @@
                             <constraint firstItem="THT-De-d0R" firstAttribute="trailing" secondItem="T73-JJ-lTn" secondAttribute="trailing" id="uOZ-gh-4Mr"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="R4G-Ce-rSP"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.crop.square.fill" catalog="system" id="R4G-Ce-rSP"/>
                     <connections>
                         <outlet property="tableView" destination="T73-JJ-lTn" id="3m4-4y-5zK"/>
                     </connections>
@@ -355,12 +415,10 @@
     <color key="tintColor" systemColor="systemOrangeColor"/>
     <resources>
         <image name="extended_logo_original" width="2477" height="1024"/>
-        <image name="house.circle" catalog="system" width="128" height="121"/>
-        <image name="person.circle" catalog="system" width="128" height="121"/>
-        <image name="plus.circle" catalog="system" width="128" height="121"/>
-        <systemColor name="quaternaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.17999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="person.3.fill" catalog="system" width="128" height="61"/>
+        <image name="person.crop.square.fill" catalog="system" width="128" height="114"/>
+        <image name="xmark.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

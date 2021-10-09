@@ -14,7 +14,11 @@
 		C2B3ADB1270CAB84002C4CB9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3ADB0270CAB84002C4CB9 /* ProfileViewController.swift */; };
 		C2B3ADB4270DE0BB002C4CB9 /* ProfileAndSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3ADB3270DE0BB002C4CB9 /* ProfileAndSetting.swift */; };
 		C2B3ADB7270DF6FA002C4CB9 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3ADB5270DF6FA002C4CB9 /* ProfileCell.swift */; };
-		C2B3ADB8270DF6FA002C4CB9 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B3ADB6270DF6FA002C4CB9 /* ProfileCell.xib */; };
+		C2B3ADBA270E684B002C4CB9 /* AddNewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3ADB9270E684A002C4CB9 /* AddNewEventViewController.swift */; };
+		C2B3ADBC270FB7D5002C4CB9 /* NewEventNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3ADBB270FB7D5002C4CB9 /* NewEventNameCell.swift */; };
+		C2B3ADBE2710B063002C4CB9 /* DayPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3ADBD2710B063002C4CB9 /* DayPickerCell.swift */; };
+		C2B3ADC0271247F1002C4CB9 /* EventAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3ADBF271247F0002C4CB9 /* EventAddressCell.swift */; };
+		C2B3ADC427124B5E002C4CB9 /* SubmitButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3ADC327124B5E002C4CB9 /* SubmitButtonCell.swift */; };
 		C2B3B045270B924600F67850 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2B3B044270B924600F67850 /* GoogleService-Info.plist */; };
 		C2BCA54B2709CA5900CE6C08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BCA54A2709CA5900CE6C08 /* AppDelegate.swift */; };
 		C2BCA54D2709CA5900CE6C08 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BCA54C2709CA5900CE6C08 /* SceneDelegate.swift */; };
@@ -23,7 +27,7 @@
 		C2BCA5542709CA5B00CE6C08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2BCA5532709CA5B00CE6C08 /* Assets.xcassets */; };
 		C2BCA5572709CA5B00CE6C08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2BCA5552709CA5B00CE6C08 /* LaunchScreen.storyboard */; };
 		C2F76682270C5663006C23FC /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F76681270C5663006C23FC /* AddFriendViewController.swift */; };
-		C2F76684270C690D006C23FC /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F76683270C690D006C23FC /* K.swift */; };
+		C2F76684270C690D006C23FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F76683270C690D006C23FC /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +39,11 @@
 		C2B3ADB0270CAB84002C4CB9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C2B3ADB3270DE0BB002C4CB9 /* ProfileAndSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAndSetting.swift; sourceTree = "<group>"; };
 		C2B3ADB5270DF6FA002C4CB9 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
-		C2B3ADB6270DF6FA002C4CB9 /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
+		C2B3ADB9270E684A002C4CB9 /* AddNewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewEventViewController.swift; sourceTree = "<group>"; };
+		C2B3ADBB270FB7D5002C4CB9 /* NewEventNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventNameCell.swift; sourceTree = "<group>"; };
+		C2B3ADBD2710B063002C4CB9 /* DayPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerCell.swift; sourceTree = "<group>"; };
+		C2B3ADBF271247F0002C4CB9 /* EventAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAddressCell.swift; sourceTree = "<group>"; };
+		C2B3ADC327124B5E002C4CB9 /* SubmitButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButtonCell.swift; sourceTree = "<group>"; };
 		C2B3B044270B924600F67850 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C2BCA5472709CA5900CE6C08 /* Cohere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cohere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2BCA54A2709CA5900CE6C08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +54,7 @@
 		C2BCA5562709CA5B00CE6C08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2BCA5582709CA5B00CE6C08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2F76681270C5663006C23FC /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
-		C2F76683270C690D006C23FC /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		C2F76683270C690D006C23FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D00884638B3FF88D14FCF01F /* Pods-Cohere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cohere.debug.xcconfig"; path = "Target Support Files/Pods-Cohere/Pods-Cohere.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,8 +86,9 @@
 				C2BCA54E2709CA5900CE6C08 /* RegisterAccountViewController.swift */,
 				C238C293270BB1020001BAA4 /* HomeViewController.swift */,
 				C2F76681270C5663006C23FC /* AddFriendViewController.swift */,
-				C2F76683270C690D006C23FC /* K.swift */,
+				C2F76683270C690D006C23FC /* Constants.swift */,
 				C2B3ADB0270CAB84002C4CB9 /* ProfileViewController.swift */,
+				C2B3ADB9270E684A002C4CB9 /* AddNewEventViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -90,6 +99,25 @@
 				C2B3ADB3270DE0BB002C4CB9 /* ProfileAndSetting.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C2B3ADC127124ABA002C4CB9 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C2B3ADB5270DF6FA002C4CB9 /* ProfileCell.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		C2B3ADC227124AF4002C4CB9 /* New Event */ = {
+			isa = PBXGroup;
+			children = (
+				C2B3ADBB270FB7D5002C4CB9 /* NewEventNameCell.swift */,
+				C2B3ADBD2710B063002C4CB9 /* DayPickerCell.swift */,
+				C2B3ADBF271247F0002C4CB9 /* EventAddressCell.swift */,
+				C2B3ADC327124B5E002C4CB9 /* SubmitButtonCell.swift */,
+			);
+			path = "New Event";
 			sourceTree = "<group>";
 		};
 		C2BCA53E2709CA5900CE6C08 = {
@@ -129,9 +157,9 @@
 		C2BCA55E270B43A800CE6C08 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C2B3ADC127124ABA002C4CB9 /* Profile */,
+				C2B3ADC227124AF4002C4CB9 /* New Event */,
 				C2BCA5502709CA5900CE6C08 /* Main.storyboard */,
-				C2B3ADB5270DF6FA002C4CB9 /* ProfileCell.swift */,
-				C2B3ADB6270DF6FA002C4CB9 /* ProfileCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,7 +237,6 @@
 				C2B3B045270B924600F67850 /* GoogleService-Info.plist in Resources */,
 				C2BCA5542709CA5B00CE6C08 /* Assets.xcassets in Resources */,
 				C2BCA5522709CA5900CE6C08 /* Main.storyboard in Resources */,
-				C2B3ADB8270DF6FA002C4CB9 /* ProfileCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,16 +290,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2B3ADB4270DE0BB002C4CB9 /* ProfileAndSetting.swift in Sources */,
+				C2B3ADC427124B5E002C4CB9 /* SubmitButtonCell.swift in Sources */,
+				C2B3ADC0271247F1002C4CB9 /* EventAddressCell.swift in Sources */,
 				C269B7BD270B56BE00CC65C4 /* LogInAccountViewController.swift in Sources */,
+				C2B3ADBA270E684B002C4CB9 /* AddNewEventViewController.swift in Sources */,
 				C2BCA54F2709CA5900CE6C08 /* RegisterAccountViewController.swift in Sources */,
 				C2B3ADB7270DF6FA002C4CB9 /* ProfileCell.swift in Sources */,
 				C2F76682270C5663006C23FC /* AddFriendViewController.swift in Sources */,
 				C269B7BB270B47C500CC65C4 /* WelcomeViewController.swift in Sources */,
 				C2BCA54B2709CA5900CE6C08 /* AppDelegate.swift in Sources */,
-				C2F76684270C690D006C23FC /* K.swift in Sources */,
+				C2B3ADBE2710B063002C4CB9 /* DayPickerCell.swift in Sources */,
+				C2F76684270C690D006C23FC /* Constants.swift in Sources */,
 				C2B3ADB1270CAB84002C4CB9 /* ProfileViewController.swift in Sources */,
 				C2BCA54D2709CA5900CE6C08 /* SceneDelegate.swift in Sources */,
 				C238C294270BB1020001BAA4 /* HomeViewController.swift in Sources */,
+				C2B3ADBC270FB7D5002C4CB9 /* NewEventNameCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

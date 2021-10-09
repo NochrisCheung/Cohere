@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class ProfileViewController: UIViewController{
+class ProfileViewController: UIViewController, UITableViewDelegate {
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -16,40 +16,12 @@ class ProfileViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        tableView.register(UINib(nibName: K.profileCellNibName, bundle: nil), forCellReuseIdentifier: K.profileCellIdentifer)
-//        tableView.delegate = self
+        tableView.delegate = self
+        tableView.register(ProfileCell.self, forCellReuseIdentifier: Constants.profileCellIdentifier)
+
     }
-}
-
-// MARK: Create profile table cells programmatically
-extension ProfileViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //hard code 2 row for now: profile and logout
-        return 2
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.profileCellIdentifer, for: indexPath) as! ProfileCell
-        
-        if indexPath.row != self.tableView.numberOfSections{
-            cell.cellButton?.setTitle("Personal Profile", for: .normal)
-            cell.cellButton?.contentHorizontalAlignment = .left
-        }else {
-            //Make the last cell the log out button
-            cell.cellButton?.setTitle(K.Button.LogOutButton.title, for: .normal)
-        }
-        
-        cell.selectionDelegate = self
-        return cell
-    }
-
-}
-
-extension ProfileViewController: ProfileCellSelectionDelegate {
     
-    func popToRootView() {
+    func logOut() {
         
         do {
             try Auth.auth().signOut()
@@ -58,7 +30,43 @@ extension ProfileViewController: ProfileCellSelectionDelegate {
         } catch let signOutError as NSError {
             print("Error signing out: $@", signOutError)
         }
+    }
+}
+
+// MARK: Create profile table cells programmatically
+extension ProfileViewController: UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //hard code 2 row for now: profile and logout
+        return 2
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.profileCellIdentifier, for: indexPath) as! ProfileCell
         
+        if indexPath.row < self.tableView.numberOfSections{
+            //hard code as placeholder for account information
+            cell.profileCellLabel.text = "Personal Profile"
+        }else {
+            //Make the last cell the log out button
+            cell.profileCellLabel.text = Constants.Button.LogOutButton.title
+        }
+        
+        return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell: ProfileCell = tableView.cellForRow(at: indexPath) as! ProfileCell
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        //  Pop to root view if log out button is clicked
+        if cell.profileCellLabel!.text == Constants.Button.LogOutButton.title {
+            self.logOut()
+        }
+        
+    }
+
 }
+
