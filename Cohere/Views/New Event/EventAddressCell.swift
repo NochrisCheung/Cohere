@@ -10,7 +10,7 @@ import UIKit
 class NewEventAddressCell: UITableViewCell {
 
     static let identifier = Constants.newEventAddressCellIdentifier
-    var eventTextField: UITextField?
+    var eventTextField: UITextField!
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -19,7 +19,7 @@ class NewEventAddressCell: UITableViewCell {
         eventTextField = UITextField()
         
         contentView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        contentView.addSubview(eventTextField!)
+        contentView.addSubview(eventTextField)
         configureEventTextField()
     }
 
@@ -28,11 +28,11 @@ class NewEventAddressCell: UITableViewCell {
     }
     
     func configureEventTextField() {
-        eventTextField!.textColor = UIColor.systemOrange
-        eventTextField!.placeholder = "Event Address"
-        eventTextField!.translatesAutoresizingMaskIntoConstraints = false
-        eventTextField!.leadingAnchor.constraint(equalTo: leadingAnchor , constant: 15).isActive = true
-        eventTextField!.trailingAnchor.constraint(equalTo: trailingAnchor , constant: -15).isActive = true
-        eventTextField!.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        eventTextField.textColor = UIColor.systemOrange
+        eventTextField.placeholder = "Event Address"
+        eventTextField.translatesAutoresizingMaskIntoConstraints = false
+        eventTextField.leadingAnchor.constraint(equalTo: leadingAnchor , constant: 15).isActive = true
+        eventTextField.trailingAnchor.constraint(equalTo: trailingAnchor , constant: -15).isActive = true
+        eventTextField.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
 }

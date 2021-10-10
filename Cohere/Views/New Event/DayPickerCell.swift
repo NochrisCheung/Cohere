@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class DayPickerCell: UITableViewCell {
         
     static let identifier = Constants.dayPickerCellIdentifier
@@ -36,6 +37,8 @@ class DayPickerCell: UITableViewCell {
         return timePicker
     }()
 
+    var selectedDateTime: Date?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         print("Create DayPickerCell")
@@ -54,8 +57,6 @@ class DayPickerCell: UITableViewCell {
         configureDatePicker()
         configureTimePicker()
         
-
-        
     }
 
     required init?(coder: NSCoder){
@@ -64,8 +65,8 @@ class DayPickerCell: UITableViewCell {
     
     
     func configureDayPickerTextLabel() {
-        dayPickerTextLabel.textColor = UIColor.systemOrange
-        dayPickerTextLabel.text = "Start Time"
+//        dayPickerTextLabel.textColor = UIColor.systemOrange
+//        dayPickerTextLabel.text = "Start Time"
 
         dayPickerTextLabel.translatesAutoresizingMaskIntoConstraints = false
         dayPickerTextLabel.leadingAnchor.constraint(equalTo: leadingAnchor , constant: 15).isActive = true
@@ -104,6 +105,10 @@ class DayPickerCell: UITableViewCell {
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.backgroundColor = Constants.Color.backgroundColor
         datePicker.minimumDate = Date()
+        
+        datePicker.addTarget(self, action: #selector(pickerHandler), for: UIControl.Event.valueChanged)
+        
+
     }
 
     func configureTimePicker() {
@@ -112,5 +117,24 @@ class DayPickerCell: UITableViewCell {
         timePicker.preferredDatePickerStyle = .wheels
         timePicker.backgroundColor = Constants.Color.backgroundColor
         timePicker.minuteInterval = 15
+        
+        timePicker.addTarget(self, action: #selector(pickerHandler), for: UIControl.Event.valueChanged)
+    }
+}
+// MARK: setup handlers
+extension DayPickerCell {
+    
+    @objc func pickerHandler(sender: UIDatePicker) {
+        let timeFormatter = DateFormatter()
+
+        if sender == datePicker {
+            timeFormatter.dateFormat = "dd MMM yy"
+            dateTextField.text = timeFormatter.string(from: sender.date)
+        } else {
+            timeFormatter.dateFormat = "HH:mm"
+            timeTextField.text = timeFormatter.string(from: sender.date)
+        }
+        
+        selectedDateTime? = sender.date
     }
 }

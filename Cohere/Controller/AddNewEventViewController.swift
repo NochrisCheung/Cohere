@@ -32,7 +32,7 @@ extension AddNewEventViewController: UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //hard code 2 row for now: profile and logout
-        return 4
+        return 5
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,12 +45,18 @@ extension AddNewEventViewController: UITableViewDataSource{
             //Day picker as second row
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.dayPickerCellIdentifier, for: indexPath) as! DayPickerCell
+            cell.dayPickerTextLabel.text = "Start Date"
             return cell
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.newEventAddressCellIdentifier, for: indexPath) as! NewEventAddressCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.dayPickerCellIdentifier, for: indexPath) as! DayPickerCell
+            cell.dayPickerTextLabel.text = "End Date"
             return cell
         case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.newEventAddressCellIdentifier, for: indexPath) as! NewEventAddressCell
+            return cell
+        case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.submitButtonCellIdentifier, for: indexPath) as! SubmitButtonCell
+            cell.delegate = self
             return cell
         default:
             let cell = UITableViewCell()
@@ -58,5 +64,46 @@ extension AddNewEventViewController: UITableViewDataSource{
         }
     }
 
+}
+
+// MARK: SubmitButtonDelegate
+
+extension AddNewEventViewController: SubmitButtonCellDelegate{
+    
+    func submitData(_ sender: SubmitButtonCell){
+        
+        let cells = self.tableView.visibleCells
+//        var newEvent = EventRecord(eventName: nil, eventStartTime: nil, eventEndTime: nil, eventAddress: nil)
+        var newEvent = EventRecord()
+        
+        for cell in cells {
+            let identifier = cell.reuseIdentifier
+            
+            switch identifier {
+            case Constants.newEventNameCellIdentifier:
+                let thisCell = cell as! NewEventNameCell
+                newEvent.eventName = thisCell.eventTextField.text
+                print(newEvent.eventName!)
+            case Constants.dayPickerCellIdentifier:
+                let thisCell = cell as! DayPickerCell
+                if thisCell.dayPickerTextLabel.text == "Start Date" {
+                    newEvent.eventStartTime = thisCell.selectedDateTime
+                } else {
+                    newEvent.eventEndTime = thisCell.selectedDateTime
+                }
+                if thisCell.selectedDateTime != nil {
+                    print(DateFormatter().string(from: thisCell.selectedDateTime!))
+                }
+            case Constants.newEventAddressCellIdentifier:
+                let thisCell = cell as! NewEventAddressCell
+                newEvent.eventAddress = thisCell.eventTextField.text
+                print(newEvent.eventAddress!)
+            default:
+                print("nothing")
+            }
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
