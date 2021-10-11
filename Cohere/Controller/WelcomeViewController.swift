@@ -14,9 +14,6 @@ class WelcomeViewController: UIViewController {
         self.performSegue(withIdentifier: "RegisterAccountSegue", sender: self)
     }
     
-
-    
-    
     @IBAction func loginPreseed(_ sender: UIButton) {
         print("Clicked Login")
         self.performSegue(withIdentifier: "LoginAccountSegue", sender: self)

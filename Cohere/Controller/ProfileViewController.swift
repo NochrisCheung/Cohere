@@ -15,9 +15,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Hide back button after login page.
+        tabBarController!.navigationItem.hidesBackButton = true
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(ProfileCell.self, forCellReuseIdentifier: Constants.profileCellIdentifier)
+        tableView.register(LogOutCell.self, forCellReuseIdentifier: Constants.logOutCellIdentifier)
 
     }
     
@@ -43,26 +48,28 @@ extension ProfileViewController: UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.profileCellIdentifier, for: indexPath) as! ProfileCell
         
         if indexPath.row < self.tableView.numberOfSections{
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.profileCellIdentifier, for: indexPath) as! ProfileCell
+
             //hard code as placeholder for account information
-            cell.profileCellLabel.text = "Personal Profile"
+//            cell.profileCellLabel.text = "Personal Profile"
+            return cell
         }else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.logOutCellIdentifier, for: indexPath) as! LogOutCell
             //Make the last cell the log out button
-            cell.profileCellLabel.text = Constants.Button.LogOutButton.title
+            cell.logOutCellLabel.text = Constants.Button.LogOutButton.title
+            return cell
         }
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell: ProfileCell = tableView.cellForRow(at: indexPath) as! ProfileCell
+        let cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
         
         //  Pop to root view if log out button is clicked
-        if cell.profileCellLabel!.text == Constants.Button.LogOutButton.title {
+        if (cell as? LogOutCell) != nil {
             self.logOut()
         }
         

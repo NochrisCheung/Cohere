@@ -10,13 +10,20 @@ import UIKit
 
 struct Constants {
     static let appName = "Cohere"
+    
     static let profileCellIdentifier = "ProfileReusableCell"
+    static let logOutCellIdentifier = "LogOutResuableCell"
     static let profileCellNibName = "ProfileCell"
     
     static let newEventNameCellIdentifier = "NewEventNameReusableCell"
     static let dayPickerCellIdentifier = "DayPickerResuableCell"
     static let newEventAddressCellIdentifier = "NewEventAddressReusableCell"
     static let submitButtonCellIdentifier = "submitButtonReusableCell"
+    
+    static let eventCellIdentifier = "EventResuableCell"
+    static let addressIconImage = UIImage(systemName: "mappin")
+    
+    static let defaultProfilePicImage = UIImage(systemName: "person.crop.circle.fill")
     
     struct Color {
         static let logoColor = UIColor(red:  255/255, green: 149/255, blue: 0/255, alpha: 1)
@@ -28,7 +35,14 @@ struct Constants {
         
         struct LogOutButton {
             static let title = "Log Out"
-            
+        }
+        struct AddEventButton {
+            static let addEventIconImage = UIImage(systemName: "plus.circle")
         }
     }
+    
+    struct DefaultsKey {
+        static let emailAddressKey = "AccountEmail"
+    }
+        
 }

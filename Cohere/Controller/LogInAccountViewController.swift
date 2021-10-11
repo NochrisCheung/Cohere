@@ -10,7 +10,7 @@ import Firebase
 
 
 class LogInAccountViewController: UIViewController {
-
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorMessage: UILabel!
@@ -26,6 +26,7 @@ class LogInAccountViewController: UIViewController {
                 } else {
                     self.errorMessage.isHidden = true
                     print("Log in successful")
+                    UserDefaults.standard.set(email, forKey: Constants.DefaultsKey.emailAddressKey)
                     self.performSegue(withIdentifier: "LogInSuccessfulSegue", sender: self)
                 }
             }
