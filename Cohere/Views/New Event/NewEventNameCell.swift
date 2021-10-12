@@ -10,13 +10,13 @@ import UIKit
 class NewEventNameCell: UITableViewCell {
     
     static let identifier = Constants.newEventNameCellIdentifier
-    var eventTextField: UITextField!
+    
+    var eventTextField: UITextField! = UITextField()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         print("Create NewEventNameCell")
         selectionStyle = .none
-        eventTextField = UITextField()
         
         contentView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         contentView.addSubview(eventTextField!)
@@ -29,7 +29,7 @@ class NewEventNameCell: UITableViewCell {
     
     func configureEventTextField() {
         eventTextField.textColor = UIColor.systemOrange
-        eventTextField.placeholder = "New Event"
+        eventTextField.placeholder = "New Event Name"
         eventTextField.translatesAutoresizingMaskIntoConstraints = false
         eventTextField.leadingAnchor.constraint(equalTo: leadingAnchor , constant: 15).isActive = true
         eventTextField.trailingAnchor.constraint(equalTo: trailingAnchor , constant: -15).isActive = true

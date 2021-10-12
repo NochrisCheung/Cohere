@@ -121,7 +121,7 @@ class DayPickerCell: UITableViewCell {
         timePicker.addTarget(self, action: #selector(pickerHandler), for: UIControl.Event.valueChanged)
     }
 }
-// MARK: setup handlers
+// MARK: Handler methods
 extension DayPickerCell {
     
     @objc func pickerHandler(sender: UIDatePicker) {
@@ -135,6 +135,7 @@ extension DayPickerCell {
             timeTextField.text = timeFormatter.string(from: sender.date)
         }
         
-        selectedDateTime? = sender.date
+        selectedDateTime = sender.date
+        print("\(selectedDateTime)")
     }
 }

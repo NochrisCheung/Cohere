@@ -30,13 +30,17 @@ class ProfileViewController: UIViewController, UITableViewDelegate {
 
     }
     
-    func loadUserProfile() {
-        let request: NSFetchRequest<UserProfile> = UserProfile.fetchRequest()
+    func loadUserProfile(with request: NSFetchRequest<UserProfile> = UserProfile.fetchRequest()) {
+        let currentUserEmail = UserDefaults.standard.string(forKey: Constants.DefaultsKey.emailAddressKey)
+        let predicate = NSPredicate(format: "emailAddress MATCHES %@", currentUserEmail!)
+        request.predicate = predicate
+        
         do {
             userProfile = try context.fetch(request)
         } catch {
             print("Error decoding array. \(error)")
         }
+        
         tableView.reloadData()
     }
     
@@ -67,7 +71,7 @@ extension ProfileViewController: UITableViewDataSource{
         
         if indexPath.row < self.tableView.numberOfSections{
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.profileCellIdentifier, for: indexPath) as! ProfileCell
-            let profile = userProfile[indexPath.row]
+            let profile = userProfile[0]
             
             cell.profileNameLabel.text = "\(profile.forename!) \(profile.surname!)"
             cell.profileEmailLabel.text = "\(profile.emailAddress!)"

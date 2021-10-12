@@ -26,6 +26,7 @@ class LogInAccountViewController: UIViewController {
                 } else {
                     self.errorMessage.isHidden = true
                     print("Log in successful")
+                    //need to make sure user profile extraction are the same locally and non-locally
                     UserDefaults.standard.set(email, forKey: Constants.DefaultsKey.emailAddressKey)
                     self.performSegue(withIdentifier: "LogInSuccessfulSegue", sender: self)
                 }

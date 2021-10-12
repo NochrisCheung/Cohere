@@ -9,6 +9,8 @@ import UIKit
 
 class AddNewEventViewController: UIViewController, UITableViewDelegate {
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     @IBOutlet weak var tableView: UITableView!
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -25,6 +27,32 @@ class AddNewEventViewController: UIViewController, UITableViewDelegate {
         tableView.register(NewEventAddressCell.self, forCellReuseIdentifier: Constants.newEventAddressCellIdentifier)
         tableView.register(SubmitButtonCell.self, forCellReuseIdentifier: Constants.submitButtonCellIdentifier)
     }
+    
+    func saveEvent() {
+     
+        do {
+            try context.save()
+        } catch {
+            print("Error decoding array. \(error)")
+        }
+        
+    }
+    
+    func passSubmitCriteria(newEvent: Event) -> Bool {
+        
+        if newEvent.name == "" || newEvent.startTime == nil || newEvent.endTime == nil || newEvent.address == "" {
+            //need to display this error message
+            print("Please fill in all the essential event information")
+            return false
+        } else if newEvent.startTime! >= newEvent.endTime! {
+            //need to eventually move to auto-prevent
+            print("Please make sure end time is set after start time")
+            return false
+        } else {
+            return true
+        }
+    }
+    
 }
 
 // MARK: Create addNewEvent table cells programmatically
@@ -69,12 +97,11 @@ extension AddNewEventViewController: UITableViewDataSource{
 // MARK: SubmitButtonDelegate
 
 extension AddNewEventViewController: SubmitButtonCellDelegate{
-    
+    //need to change to some more dynamic interface
     func submitData(_ sender: SubmitButtonCell){
         
+        let newEvent = Event(context: self.context)
         let cells = self.tableView.visibleCells
-//        var newEvent = EventRecord(eventName: nil, eventStartTime: nil, eventEndTime: nil, eventAddress: nil)
-        var newEvent = EventRecord()
         
         for cell in cells {
             let identifier = cell.reuseIdentifier
@@ -82,28 +109,32 @@ extension AddNewEventViewController: SubmitButtonCellDelegate{
             switch identifier {
             case Constants.newEventNameCellIdentifier:
                 let thisCell = cell as! NewEventNameCell
-                newEvent.eventName = thisCell.eventTextField.text
-                print(newEvent.eventName!)
+                //need to show error message if no text
+                newEvent.name = thisCell.eventTextField.text
+                print("event name: \(String(describing: newEvent.name))")
             case Constants.dayPickerCellIdentifier:
                 let thisCell = cell as! DayPickerCell
                 if thisCell.dayPickerTextLabel.text == "Start Date" {
-                    newEvent.eventStartTime = thisCell.selectedDateTime
+                    newEvent.startTime = thisCell.selectedDateTime
+                    print("start time: \(String(describing: newEvent.startTime))")
                 } else {
-                    newEvent.eventEndTime = thisCell.selectedDateTime
-                }
-                if thisCell.selectedDateTime != nil {
-                    print(DateFormatter().string(from: thisCell.selectedDateTime!))
+                    newEvent.endTime = thisCell.selectedDateTime
+                    print("end time: \(String(describing: newEvent.endTime))")
                 }
             case Constants.newEventAddressCellIdentifier:
                 let thisCell = cell as! NewEventAddressCell
-                newEvent.eventAddress = thisCell.eventTextField.text
-                print(newEvent.eventAddress!)
+                //need to show error message if no text
+                newEvent.address = thisCell.eventTextField.text
+                print("event Address: \(String(describing: newEvent.address))")
             default:
                 print("nothing")
             }
         }
         
-        self.dismiss(animated: true, completion: nil)
+        if self.passSubmitCriteria(newEvent: newEvent) {
+            self.saveEvent()
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
 

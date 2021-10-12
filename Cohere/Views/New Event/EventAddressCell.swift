@@ -10,7 +10,8 @@ import UIKit
 class NewEventAddressCell: UITableViewCell {
 
     static let identifier = Constants.newEventAddressCellIdentifier
-    var eventTextField: UITextField!
+    
+    var eventTextField: UITextField! = UITextField()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
