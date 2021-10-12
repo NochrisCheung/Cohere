@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import CoreData
 import Firebase
 
 class ProfileViewController: UIViewController, UITableViewDelegate {
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var userProfile = [UserProfile]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,11 +22,22 @@ class ProfileViewController: UIViewController, UITableViewDelegate {
         // Hide back button after login page.
         tabBarController!.navigationItem.hidesBackButton = true
         
+        loadUserProfile()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(ProfileCell.self, forCellReuseIdentifier: Constants.profileCellIdentifier)
         tableView.register(LogOutCell.self, forCellReuseIdentifier: Constants.logOutCellIdentifier)
 
+    }
+    
+    func loadUserProfile() {
+        let request: NSFetchRequest<UserProfile> = UserProfile.fetchRequest()
+        do {
+            userProfile = try context.fetch(request)
+        } catch {
+            print("Error decoding array. \(error)")
+        }
+        tableView.reloadData()
     }
     
     func logOut() {
@@ -36,9 +50,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate {
             print("Error signing out: $@", signOutError)
         }
     }
+    
+    
 }
 
-// MARK: Create profile table cells programmatically
+// MARK: tableView methods
 extension ProfileViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,11 +63,14 @@ extension ProfileViewController: UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         
         if indexPath.row < self.tableView.numberOfSections{
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.profileCellIdentifier, for: indexPath) as! ProfileCell
-
+            let profile = userProfile[indexPath.row]
+            
+            cell.profileNameLabel.text = "\(profile.forename!) \(profile.surname!)"
+            cell.profileEmailLabel.text = "\(profile.emailAddress!)"
             //hard code as placeholder for account information
 //            cell.profileCellLabel.text = "Personal Profile"
             return cell
@@ -76,4 +95,3 @@ extension ProfileViewController: UITableViewDataSource{
     }
 
 }
-

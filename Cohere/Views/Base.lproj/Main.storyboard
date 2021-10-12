@@ -82,6 +82,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Forename" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-jT-SaN">
+                                <rect key="frame" x="44" y="152" width="326" height="34"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" textContentType="email"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="oFH-Yv-MyR">
+                                <rect key="frame" x="44" y="206" width="326" height="34"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" textContentType="email"/>
+                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="SH4-DD-d7B">
                                 <rect key="frame" x="44" y="260" width="326" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -119,27 +131,37 @@
                         <viewLayoutGuide key="safeArea" id="WbP-MG-6i0"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Fao-jT-SaN" firstAttribute="top" secondItem="WbP-MG-6i0" secondAttribute="top" constant="64" id="0QN-AX-9jc"/>
                             <constraint firstItem="WbP-MG-6i0" firstAttribute="trailing" secondItem="SH4-DD-d7B" secondAttribute="trailing" constant="44" id="15T-D7-hHs"/>
+                            <constraint firstItem="SH4-DD-d7B" firstAttribute="top" secondItem="oFH-Yv-MyR" secondAttribute="bottom" constant="20" id="4bv-4P-fT4"/>
                             <constraint firstItem="WbP-MG-6i0" firstAttribute="trailing" secondItem="zif-2w-pAa" secondAttribute="trailing" constant="44" id="57y-L3-OTz"/>
                             <constraint firstItem="qhj-wO-hIp" firstAttribute="leading" secondItem="WbP-MG-6i0" secondAttribute="leading" constant="44" id="B6q-77-PvD"/>
                             <constraint firstItem="SH4-DD-d7B" firstAttribute="centerX" secondItem="4k6-Un-m6Y" secondAttribute="centerX" id="Hzl-MZ-gLM"/>
+                            <constraint firstItem="oFH-Yv-MyR" firstAttribute="leading" secondItem="WbP-MG-6i0" secondAttribute="leading" constant="44" id="T5I-Pc-KSt"/>
                             <constraint firstItem="Ibe-UL-Din" firstAttribute="top" secondItem="zif-2w-pAa" secondAttribute="bottom" constant="10" id="TBg-IL-1Pc"/>
                             <constraint firstItem="qhj-wO-hIp" firstAttribute="top" secondItem="SH4-DD-d7B" secondAttribute="bottom" constant="20" id="WYw-lt-amW"/>
                             <constraint firstItem="SH4-DD-d7B" firstAttribute="leading" secondItem="WbP-MG-6i0" secondAttribute="leading" constant="44" id="bY3-T7-ULz"/>
                             <constraint firstItem="zif-2w-pAa" firstAttribute="centerX" secondItem="4k6-Un-m6Y" secondAttribute="centerX" id="bmD-Oc-iQK"/>
                             <constraint firstItem="zif-2w-pAa" firstAttribute="leading" secondItem="WbP-MG-6i0" secondAttribute="leading" constant="44" id="dLG-Vy-13U"/>
+                            <constraint firstItem="Fao-jT-SaN" firstAttribute="leading" secondItem="WbP-MG-6i0" secondAttribute="leading" constant="44" id="dPE-fW-Nd9"/>
                             <constraint firstItem="Ibe-UL-Din" firstAttribute="top" secondItem="qhj-wO-hIp" secondAttribute="bottom" constant="80" id="g7h-ni-eSg"/>
+                            <constraint firstItem="Fao-jT-SaN" firstAttribute="centerX" secondItem="4k6-Un-m6Y" secondAttribute="centerX" id="g8m-ZQ-ZlW"/>
+                            <constraint firstItem="WbP-MG-6i0" firstAttribute="trailing" secondItem="Fao-jT-SaN" secondAttribute="trailing" constant="44" id="l15-Wf-DG2"/>
                             <constraint firstItem="Ibe-UL-Din" firstAttribute="centerX" secondItem="4k6-Un-m6Y" secondAttribute="centerX" id="lJO-i6-kdJ"/>
                             <constraint firstItem="qhj-wO-hIp" firstAttribute="centerX" secondItem="4k6-Un-m6Y" secondAttribute="centerX" id="lsE-Xm-1T8"/>
+                            <constraint firstItem="oFH-Yv-MyR" firstAttribute="centerX" secondItem="4k6-Un-m6Y" secondAttribute="centerX" id="nSE-WB-Sad"/>
                             <constraint firstItem="WbP-MG-6i0" firstAttribute="trailing" secondItem="qhj-wO-hIp" secondAttribute="trailing" constant="44" id="pjm-Ne-0ym"/>
-                            <constraint firstItem="SH4-DD-d7B" firstAttribute="top" secondItem="WbP-MG-6i0" secondAttribute="top" constant="172" id="wow-P3-Jph"/>
+                            <constraint firstItem="WbP-MG-6i0" firstAttribute="trailing" secondItem="oFH-Yv-MyR" secondAttribute="trailing" constant="44" id="qWy-0b-Pr5"/>
+                            <constraint firstItem="oFH-Yv-MyR" firstAttribute="top" secondItem="Fao-jT-SaN" secondAttribute="bottom" constant="20" id="ySx-kb-6fC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PZI-Px-due"/>
                     <connections>
                         <outlet property="emailTextField" destination="SH4-DD-d7B" id="KFa-0V-6HW"/>
                         <outlet property="errorMessage" destination="zif-2w-pAa" id="8BZ-Kp-7Kx"/>
+                        <outlet property="forenameTextField" destination="Fao-jT-SaN" id="e6C-pW-QlM"/>
                         <outlet property="passwordTextField" destination="qhj-wO-hIp" id="dcK-D1-HSz"/>
+                        <outlet property="surnameTextField" destination="oFH-Yv-MyR" id="wot-ky-mY3"/>
                         <segue destination="NKO-Nz-vMT" kind="show" identifier="RegisterSuccessfulSegue" id="wlD-ad-77r"/>
                     </connections>
                 </viewController>
@@ -155,13 +177,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="c@c.com" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="IaW-RC-OCF">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="c@cwc.com" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="IaW-RC-OCF">
                                 <rect key="frame" x="44" y="260" width="326" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" textContentType="email"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="qwerty" borderStyle="roundedRect" placeholder="qwerty" adjustsFontSizeToFit="NO" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="SAi-Qz-gyu">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="qwerty" borderStyle="roundedRect" placeholder="Password" adjustsFontSizeToFit="NO" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="SAi-Qz-gyu">
                                 <rect key="frame" x="44" y="314" width="326" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -438,7 +460,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wlD-ad-77r"/>
+        <segue reference="Sw5-3g-Tsu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemOrangeColor"/>
     <resources>
