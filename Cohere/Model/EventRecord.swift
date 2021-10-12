@@ -8,14 +8,8 @@
 import Foundation
 
 struct EventRecord{
-    var eventName: String?
-    var eventStartTime: Date?
-    var eventEndTime : Date?
-    var eventAddress : String?
-    
-//    init(eventName: String?, eventStartTime: Date?, eventEndTime: Date?, eventAddress: String?){
-//        if eventName != nil {
-//            self.eventName = eventName
-//        }
-//    }
+    var name: String?
+    var startTime: Date?
+    var endTime : Date?
+    var address : String?
 }

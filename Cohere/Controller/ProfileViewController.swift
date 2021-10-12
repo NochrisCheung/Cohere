@@ -27,7 +27,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate {
         tableView.delegate = self
         tableView.register(ProfileCell.self, forCellReuseIdentifier: Constants.profileCellIdentifier)
         tableView.register(LogOutCell.self, forCellReuseIdentifier: Constants.logOutCellIdentifier)
-
+        
     }
     
     func loadUserProfile(with request: NSFetchRequest<UserProfile> = UserProfile.fetchRequest()) {

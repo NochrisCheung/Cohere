@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SubmitButtonCellDelegate {
-    func submitData(_ sender: SubmitButtonCell)
+    func submitData()
 }
 
 class SubmitButtonCell: UITableViewCell {
@@ -51,7 +51,7 @@ class SubmitButtonCell: UITableViewCell {
     }
     
     @objc func buttonHandler(sender: UIButton){
-        delegate?.submitData(self)
+        delegate?.submitData()
     }
     
 }

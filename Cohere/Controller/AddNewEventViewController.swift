@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol AddNewEventViewControllerDelegate {
+    func popOverDismissed()
+}
+
 class AddNewEventViewController: UIViewController, UITableViewDelegate {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var delegate : AddNewEventViewControllerDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
@@ -38,7 +43,12 @@ class AddNewEventViewController: UIViewController, UITableViewDelegate {
         
     }
     
-    func passSubmitCriteria(newEvent: Event) -> Bool {
+    func passSubmitCriteria(newEvent: EventRecord) -> Bool {
+        
+        print(newEvent.name)
+        print(newEvent.startTime)
+        print(newEvent.endTime)
+        print(newEvent.address)
         
         if newEvent.name == "" || newEvent.startTime == nil || newEvent.endTime == nil || newEvent.address == "" {
             //need to display this error message
@@ -98,9 +108,10 @@ extension AddNewEventViewController: UITableViewDataSource{
 
 extension AddNewEventViewController: SubmitButtonCellDelegate{
     //need to change to some more dynamic interface
-    func submitData(_ sender: SubmitButtonCell){
+    //_ sender: SubmitButtonCel
+    func submitData(){
         
-        let newEvent = Event(context: self.context)
+        var newEventRecord = EventRecord()
         let cells = self.tableView.visibleCells
         
         for cell in cells {
@@ -110,30 +121,39 @@ extension AddNewEventViewController: SubmitButtonCellDelegate{
             case Constants.newEventNameCellIdentifier:
                 let thisCell = cell as! NewEventNameCell
                 //need to show error message if no text
-                newEvent.name = thisCell.eventTextField.text
-                print("event name: \(String(describing: newEvent.name))")
+                newEventRecord.name = thisCell.eventTextField.text
+                print("event name: \(String(describing: newEventRecord.name))")
             case Constants.dayPickerCellIdentifier:
                 let thisCell = cell as! DayPickerCell
                 if thisCell.dayPickerTextLabel.text == "Start Date" {
-                    newEvent.startTime = thisCell.selectedDateTime
-                    print("start time: \(String(describing: newEvent.startTime))")
+                    newEventRecord.startTime = thisCell.selectedDateTime
+                    print("start time: \(String(describing: newEventRecord.startTime))")
                 } else {
-                    newEvent.endTime = thisCell.selectedDateTime
-                    print("end time: \(String(describing: newEvent.endTime))")
+                    newEventRecord.endTime = thisCell.selectedDateTime
+                    print("end time: \(String(describing: newEventRecord.endTime))")
                 }
             case Constants.newEventAddressCellIdentifier:
                 let thisCell = cell as! NewEventAddressCell
                 //need to show error message if no text
-                newEvent.address = thisCell.eventTextField.text
-                print("event Address: \(String(describing: newEvent.address))")
+                newEventRecord.address = thisCell.eventTextField.text
+                print("event Address: \(String(describing: newEventRecord.address))")
             default:
                 print("nothing")
             }
         }
         
-        if self.passSubmitCriteria(newEvent: newEvent) {
+        if self.passSubmitCriteria(newEvent: newEventRecord) {
+        
+            let newEventData = Event(context: self.context)
+            newEventData.name = newEventRecord.name
+            newEventData.startTime = newEventRecord.startTime
+            newEventData.endTime = newEventRecord.endTime
+            newEventData.address = newEventRecord.address
+            
             self.saveEvent()
+            delegate?.popOverDismissed()
             self.dismiss(animated: true, completion: nil)
+            
         }
     }
 }
