@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class EventCell: UITableViewCell {
+//UITableViewCell
+class EventCell: SwipeTableViewCell {
 
     static let identifier = Constants.eventCellIdentifier
     

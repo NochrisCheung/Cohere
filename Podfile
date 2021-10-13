@@ -8,5 +8,6 @@ target 'Cohere' do
   # Pods for Cohere
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
-  
+  pod 'SwipeCellKit', :git => 'https://github.com/SwipeCellKit/SwipeCellKit.git', :branch => 'develop'
+
 end

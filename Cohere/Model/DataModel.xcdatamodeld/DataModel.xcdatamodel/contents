@@ -6,13 +6,19 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
+    <entity name="Friend" representedClassName="Friend" syncable="YES" codeGenerationType="class">
+        <attribute name="emailAddress" attributeType="String"/>
+        <attribute name="forename" attributeType="String"/>
+        <attribute name="surname" attributeType="String"/>
+    </entity>
     <entity name="UserProfile" representedClassName="UserProfile" syncable="YES" codeGenerationType="class">
         <attribute name="emailAddress" attributeType="String"/>
         <attribute name="forename" attributeType="String"/>
         <attribute name="surname" attributeType="String"/>
     </entity>
     <elements>
-        <element name="UserProfile" positionX="-63" positionY="-18" width="128" height="74"/>
         <element name="Event" positionX="-54" positionY="18" width="128" height="89"/>
+        <element name="UserProfile" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="Friend" positionX="-36" positionY="45" width="128" height="74"/>
     </elements>
 </model>

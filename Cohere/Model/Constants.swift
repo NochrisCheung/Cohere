@@ -11,17 +11,24 @@ import UIKit
 struct Constants {
     static let appName = "Cohere"
     
-    static let profileCellIdentifier = "ProfileReusableCell"
-    static let logOutCellIdentifier = "LogOutResuableCell"
-    static let profileCellNibName = "ProfileCell"
-    
+    //MARK: Event View
+    static let eventCellIdentifier = "EventResuableCell"
+    static let addressIconImage = UIImage(systemName: "mappin")
+
+    //MARK: New Event View
     static let newEventNameCellIdentifier = "NewEventNameReusableCell"
     static let dayPickerCellIdentifier = "DayPickerResuableCell"
     static let newEventAddressCellIdentifier = "NewEventAddressReusableCell"
     static let submitButtonCellIdentifier = "submitButtonReusableCell"
     
-    static let eventCellIdentifier = "EventResuableCell"
-    static let addressIconImage = UIImage(systemName: "mappin")
+    //MARK: Friend View
+    static let friendCellIdentifier = "FriendReusableCell"
+
+    //MARK: Profile View
+    static let profileCellIdentifier = "ProfileReusableCell"
+    static let logOutCellIdentifier = "LogOutResuableCell"
+//    static let profileCellNibName = "ProfileCell"
+
     
     static let defaultProfilePicImage = UIImage(systemName: "person.crop.circle.fill")
     
@@ -38,6 +45,9 @@ struct Constants {
         }
         struct AddEventButton {
             static let addEventIconImage = UIImage(systemName: "plus.circle")
+        }
+        struct AddFriendButton {
+            static let addFriendIconImage = UIImage(systemName: "person.crop.circle.badge.plus")
         }
     }
     

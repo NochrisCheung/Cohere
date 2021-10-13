@@ -15,8 +15,10 @@
 		C294988827139993007A56A6 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C294988727139993007A56A6 /* EventDetailViewController.swift */; };
 		C294988A27143670007A56A6 /* LogOutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C294988927143670007A56A6 /* LogOutCell.swift */; };
 		C294988D2714D86E007A56A6 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C294988B2714D86E007A56A6 /* DataModel.xcdatamodeld */; };
+		C29498DE2716E70B007A56A6 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29498DD2716E70B007A56A6 /* FriendsViewController.swift */; };
+		C29498E02716EA48007A56A6 /* FriendDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29498DF2716EA48007A56A6 /* FriendDetail.swift */; };
+		C29498E22716EB8F007A56A6 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29498E12716EB8F007A56A6 /* FriendCell.swift */; };
 		C2B3ADB1270CAB84002C4CB9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3ADB0270CAB84002C4CB9 /* ProfileViewController.swift */; };
-		C2B3ADB4270DE0BB002C4CB9 /* ProfileAndSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3ADB3270DE0BB002C4CB9 /* ProfileAndSetting.swift */; };
 		C2B3ADB7270DF6FA002C4CB9 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3ADB5270DF6FA002C4CB9 /* ProfileCell.swift */; };
 		C2B3ADBA270E684B002C4CB9 /* AddNewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3ADB9270E684A002C4CB9 /* AddNewEventViewController.swift */; };
 		C2B3ADBC270FB7D5002C4CB9 /* NewEventNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3ADBB270FB7D5002C4CB9 /* NewEventNameCell.swift */; };
@@ -31,7 +33,6 @@
 		C2BCA5542709CA5B00CE6C08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2BCA5532709CA5B00CE6C08 /* Assets.xcassets */; };
 		C2BCA5572709CA5B00CE6C08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2BCA5552709CA5B00CE6C08 /* LaunchScreen.storyboard */; };
 		C2F25830271346E1004BCDEA /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2582F271346E1004BCDEA /* EventCell.swift */; };
-		C2F2583227134BB7004BCDEA /* DummyEventRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2583127134BB7004BCDEA /* DummyEventRecord.swift */; };
 		C2F76684270C690D006C23FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F76683270C690D006C23FC /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,8 +46,10 @@
 		C294988727139993007A56A6 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		C294988927143670007A56A6 /* LogOutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutCell.swift; sourceTree = "<group>"; };
 		C294988C2714D86E007A56A6 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		C29498DD2716E70B007A56A6 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		C29498DF2716EA48007A56A6 /* FriendDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetail.swift; sourceTree = "<group>"; };
+		C29498E12716EB8F007A56A6 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		C2B3ADB0270CAB84002C4CB9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		C2B3ADB3270DE0BB002C4CB9 /* ProfileAndSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAndSetting.swift; sourceTree = "<group>"; };
 		C2B3ADB5270DF6FA002C4CB9 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		C2B3ADB9270E684A002C4CB9 /* AddNewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewEventViewController.swift; sourceTree = "<group>"; };
 		C2B3ADBB270FB7D5002C4CB9 /* NewEventNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventNameCell.swift; sourceTree = "<group>"; };
@@ -63,7 +66,6 @@
 		C2BCA5562709CA5B00CE6C08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2BCA5582709CA5B00CE6C08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2F2582F271346E1004BCDEA /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
-		C2F2583127134BB7004BCDEA /* DummyEventRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyEventRecord.swift; sourceTree = "<group>"; };
 		C2F76683270C690D006C23FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D00884638B3FF88D14FCF01F /* Pods-Cohere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cohere.debug.xcconfig"; path = "Target Support Files/Pods-Cohere/Pods-Cohere.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,19 +97,27 @@
 				C269B7BC270B56BE00CC65C4 /* LogInAccountViewController.swift */,
 				C2BCA54E2709CA5900CE6C08 /* RegisterAccountViewController.swift */,
 				C238C293270BB1020001BAA4 /* HomeViewController.swift */,
-				C2B3ADB0270CAB84002C4CB9 /* ProfileViewController.swift */,
 				C2B3ADB9270E684A002C4CB9 /* AddNewEventViewController.swift */,
 				C294988727139993007A56A6 /* EventDetailViewController.swift */,
+				C29498DD2716E70B007A56A6 /* FriendsViewController.swift */,
+				C2B3ADB0270CAB84002C4CB9 /* ProfileViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		C29498DC2716E6A5007A56A6 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				C29498E12716EB8F007A56A6 /* FriendCell.swift */,
+			);
+			path = Friends;
 			sourceTree = "<group>";
 		};
 		C2B3ADB2270DDDD5002C4CB9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C2B3ADB3270DE0BB002C4CB9 /* ProfileAndSetting.swift */,
 				C21EC10E271326280079652A /* EventRecord.swift */,
-				C2F2583127134BB7004BCDEA /* DummyEventRecord.swift */,
+				C29498DF2716EA48007A56A6 /* FriendDetail.swift */,
 				C2F76683270C690D006C23FC /* Constants.swift */,
 				C294988B2714D86E007A56A6 /* DataModel.xcdatamodeld */,
 			);
@@ -172,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				C2F2582E271346BB004BCDEA /* Events */,
-				C2B3ADC227124AF4002C4CB9 /* New Event */,
+				C29498DC2716E6A5007A56A6 /* Friends */,
 				C2B3ADC127124ABA002C4CB9 /* Profile */,
 				C2BCA5502709CA5900CE6C08 /* Main.storyboard */,
 			);
@@ -182,6 +192,7 @@
 		C2F2582E271346BB004BCDEA /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				C2B3ADC227124AF4002C4CB9 /* New Event */,
 				C2F2582F271346E1004BCDEA /* EventCell.swift */,
 			);
 			path = Events;
@@ -312,16 +323,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2B3ADB4270DE0BB002C4CB9 /* ProfileAndSetting.swift in Sources */,
+				C29498E02716EA48007A56A6 /* FriendDetail.swift in Sources */,
 				C294988827139993007A56A6 /* EventDetailViewController.swift in Sources */,
 				C2B3ADC427124B5E002C4CB9 /* SubmitButtonCell.swift in Sources */,
 				C294988D2714D86E007A56A6 /* DataModel.xcdatamodeld in Sources */,
 				C2B3ADC0271247F1002C4CB9 /* EventAddressCell.swift in Sources */,
 				C269B7BD270B56BE00CC65C4 /* LogInAccountViewController.swift in Sources */,
+				C29498DE2716E70B007A56A6 /* FriendsViewController.swift in Sources */,
 				C2B3ADBA270E684B002C4CB9 /* AddNewEventViewController.swift in Sources */,
 				C2F25830271346E1004BCDEA /* EventCell.swift in Sources */,
 				C2BCA54F2709CA5900CE6C08 /* RegisterAccountViewController.swift in Sources */,
 				C2B3ADB7270DF6FA002C4CB9 /* ProfileCell.swift in Sources */,
+				C29498E22716EB8F007A56A6 /* FriendCell.swift in Sources */,
 				C294988A27143670007A56A6 /* LogOutCell.swift in Sources */,
 				C269B7BB270B47C500CC65C4 /* WelcomeViewController.swift in Sources */,
 				C2BCA54B2709CA5900CE6C08 /* AppDelegate.swift in Sources */,
@@ -329,7 +342,6 @@
 				C21EC10F271326280079652A /* EventRecord.swift in Sources */,
 				C2F76684270C690D006C23FC /* Constants.swift in Sources */,
 				C2B3ADB1270CAB84002C4CB9 /* ProfileViewController.swift in Sources */,
-				C2F2583227134BB7004BCDEA /* DummyEventRecord.swift in Sources */,
 				C2BCA54D2709CA5900CE6C08 /* SceneDelegate.swift in Sources */,
 				C238C294270BB1020001BAA4 /* HomeViewController.swift in Sources */,
 				C2B3ADBC270FB7D5002C4CB9 /* NewEventNameCell.swift in Sources */,

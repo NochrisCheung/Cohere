@@ -136,6 +136,6 @@ extension DayPickerCell {
         }
         
         selectedDateTime = sender.date
-        print("\(selectedDateTime)")
+        print("\(String(describing: selectedDateTime))")
     }
 }

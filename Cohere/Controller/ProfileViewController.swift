@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("Load Profile View")
         // Hide back button after login page.
         tabBarController!.navigationItem.hidesBackButton = true
         
@@ -58,7 +58,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate {
     
 }
 
-// MARK: tableView methods
+// MARK: Table View Methods
 extension ProfileViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,13 +75,14 @@ extension ProfileViewController: UITableViewDataSource{
             
             cell.profileNameLabel.text = "\(profile.forename!) \(profile.surname!)"
             cell.profileEmailLabel.text = "\(profile.emailAddress!)"
-            //hard code as placeholder for account information
-//            cell.profileCellLabel.text = "Personal Profile"
+
             return cell
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.logOutCellIdentifier, for: indexPath) as! LogOutCell
+
             //Make the last cell the log out button
             cell.logOutCellLabel.text = Constants.Button.LogOutButton.title
+
             return cell
         }
     }

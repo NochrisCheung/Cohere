@@ -45,10 +45,10 @@ class AddNewEventViewController: UIViewController, UITableViewDelegate {
     
     func passSubmitCriteria(newEvent: EventRecord) -> Bool {
         
-        print(newEvent.name)
-        print(newEvent.startTime)
-        print(newEvent.endTime)
-        print(newEvent.address)
+        print(String(describing: newEvent.name))
+        print(String(describing: newEvent.startTime))
+        print(String(describing: newEvent.endTime))
+        print(String(describing: newEvent.address))
         
         if newEvent.name == "" || newEvent.startTime == nil || newEvent.endTime == nil || newEvent.address == "" {
             //need to display this error message
@@ -65,7 +65,7 @@ class AddNewEventViewController: UIViewController, UITableViewDelegate {
     
 }
 
-// MARK: Create addNewEvent table cells programmatically
+// MARK: Table View Methods
 extension AddNewEventViewController: UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -104,11 +104,10 @@ extension AddNewEventViewController: UITableViewDataSource{
 
 }
 
-// MARK: SubmitButtonDelegate
+// MARK: Submit Button Delegate
 
 extension AddNewEventViewController: SubmitButtonCellDelegate{
     //need to change to some more dynamic interface
-    //_ sender: SubmitButtonCel
     func submitData(){
         
         var newEventRecord = EventRecord()
@@ -153,7 +152,6 @@ extension AddNewEventViewController: SubmitButtonCellDelegate{
             self.saveEvent()
             delegate?.popOverDismissed()
             self.dismiss(animated: true, completion: nil)
-            
         }
     }
 }

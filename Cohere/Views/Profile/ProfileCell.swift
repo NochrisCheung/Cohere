@@ -12,16 +12,9 @@ class ProfileCell: UITableViewCell {
 
     let identifier = Constants.profileCellIdentifier
     
-    var profilePicImageView: UIImageView! = {
-        return UIImageView()
-    }()
-    
-    var profileNameLabel: UILabel! = {
-        return UILabel()
-    }()
-    var profileEmailLabel: UILabel! = {
-        return UILabel()
-    }()
+    var profilePicImageView: UIImageView! = UIImageView()
+    var profileNameLabel: UILabel! = UILabel()
+    var profileEmailLabel: UILabel! = UILabel()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -43,7 +36,6 @@ class ProfileCell: UITableViewCell {
     }
     
     func configureprofilePicImageView() {
-//        profilePicImageView.backgroundColor = Constants.Color.logoColor
         profilePicImageView.image = Constants.defaultProfilePicImage!
         profilePicImageView.tintColor = Constants.Color.secondaryLogoColor
         
@@ -53,16 +45,11 @@ class ProfileCell: UITableViewCell {
         
         profilePicImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -10).isActive = true
         profilePicImageView.widthAnchor.constraint(equalTo: profilePicImageView.heightAnchor).isActive = true
-        
-        
     }
     
     func configureprofileNameLabel() {
         profileNameLabel.textColor = UIColor.systemGray
         profileNameLabel.font = UIFont.boldSystemFont(ofSize: 16)
-//        profileNameLabel.text = UserDefaults.standard.string(forKey: Constants.DefaultsKey.emailAddressKey)
-        // hard code name for now
-        profileNameLabel.text = "Chris Cheung"
         
         profileNameLabel.translatesAutoresizingMaskIntoConstraints = false
         profileNameLabel.leadingAnchor.constraint(equalTo: profilePicImageView.trailingAnchor, constant: 15).isActive = true
@@ -71,7 +58,6 @@ class ProfileCell: UITableViewCell {
 //        profileNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         profileNameLabel.bottomAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         profileNameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
     }
     
     func configureprofileEmailLabel() {
@@ -79,13 +65,11 @@ class ProfileCell: UITableViewCell {
         profileEmailLabel.text = UserDefaults.standard.string(forKey: Constants.DefaultsKey.emailAddressKey)
         
         profileEmailLabel.translatesAutoresizingMaskIntoConstraints = false
+        profileEmailLabel.topAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 0).isActive = true
         profileEmailLabel.leadingAnchor.constraint(equalTo: profilePicImageView.trailingAnchor, constant: 15).isActive = true
-        profileEmailLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
+        profileEmailLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
 //        profileEmailLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
 //        profileEmailLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 20).isActive = true
-        profileEmailLabel.topAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 0).isActive = true
         profileEmailLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
     }
-    
 }
