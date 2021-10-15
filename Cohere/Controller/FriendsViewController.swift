@@ -7,12 +7,12 @@
 
 import UIKit
 import CoreData
-import SwipeCellKit
+//import SwipeCellKit
 
 class FriendsViewController: UIViewController, UITableViewDelegate{
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var friendArray = [Friend]()
+    var friendArray = [Friends]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,36 +29,36 @@ class FriendsViewController: UIViewController, UITableViewDelegate{
             target: self,
             action: #selector(addNewFriendPressed)
         )
-        
-//        loadEvent()
-//        print("Counting friends \(eventArray.count)")
-//        if friendArray.count > 0 {
+    
+        loadEvent()
+        print("Counting friends \(friendArray.count)")
+        if friendArray.count > 0 {
             tableView.dataSource = self
             tableView.delegate = self
             tableView.register(FriendCell.self, forCellReuseIdentifier: Constants.friendCellIdentifier)
         }
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         print("Friend viewDidAppear")
         tabBarController!.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: Constants.Button.AddFriendButton.addFriendIconImage,
+            image: Constants.Button.AddFriendViewButton.addFriendIconImage,
             style: .plain,
             target: self,
             action: #selector(addNewFriendPressed)
         )
     }
-//
+
     @objc func addNewFriendPressed() {
-//        self.performSegue(withIdentifier: "AddNewEventSegue", sender: self)
+        self.performSegue(withIdentifier: "AddNewFriendSegue", sender: self)
     }
-}
-//    
+
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "AddNewEventSegue" {
-//            (segue.destination as! AddNewEventViewController).delegate  = self
+//        if segue.identifier == "AddNewFriendSegue" {
+//            (segue.destination as! AddNewFriendViewController).delegate  = self
 //        }
 //    }
-//    
+    
 //    func saveEvent() {
 //        do{
 //            try context.save()
@@ -67,44 +67,41 @@ class FriendsViewController: UIViewController, UITableViewDelegate{
 //        }
 //        tableView.reloadData()
 //    }
-//    
-//    
-//    func loadEvent(with request: NSFetchRequest<Event> = Event.fetchRequest()) {
-//        do {
-//            eventArray = try context.fetch(request)
-//        } catch {
-//            print("Error decoding array. \(error)")
-//        }
-////        tableView.reloadData()
-//    }
-//    
+    
+    
+    func loadEvent(with request: NSFetchRequest<Friends> = Friends.fetchRequest()) {
+        do {
+            friendArray = try context.fetch(request)
+        } catch {
+            print("Error decoding array. \(error)")
+        }
+    }
+    
 //    func deleteEvent(indexPath: IndexPath) {
-//        
+//
 //        context.delete(eventArray[indexPath.row])
 //        eventArray.remove(at: indexPath.row)
 //        saveEvent()
 ////        tableView.reloadData()
 //        print("Event Deleted")
 //    }
-//}
+}
 
 // MARK: Table View Methods
 extension FriendsViewController: UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //hard code 2 row for now: profile and logout
-        return 2
+        return friendArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.friendCellIdentifier, for: indexPath) as! FriendCell
-//        let friend = userProfile[indexPath.row]
+        let friend = friendArray[indexPath.row]
 
-//            cell.friendNameLabel.text = "\(profile.forename!) \(profile.surname!)"
+        cell.friendNameLabel.text = "\(friend.firstName!) \(friend.lastName!)"
 //            cell.profileEmailLabel.text = "\(profile.emailAddress!)"
-        //hard code as placeholder for account information
-//            cell.profileCellLabel.text = "Personal Profile"
         return cell
     }
 

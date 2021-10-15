@@ -143,7 +143,7 @@ extension AddNewEventViewController: SubmitButtonCellDelegate{
         
         if self.passSubmitCriteria(newEvent: newEventRecord) {
         
-            let newEventData = Event(context: self.context)
+            let newEventData = Events(context: self.context)
             newEventData.name = newEventRecord.name
             newEventData.startTime = newEventRecord.startTime
             newEventData.endTime = newEventRecord.endTime

@@ -12,7 +12,7 @@ import Firebase
 class ProfileViewController: UIViewController, UITableViewDelegate {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var userProfile = [UserProfile]()
+    var me = [Me]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,8 +21,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate {
         print("Load Profile View")
         // Hide back button after login page.
         tabBarController!.navigationItem.hidesBackButton = true
+        tabBarController!.navigationItem.rightBarButtonItem = nil
         
-        loadUserProfile()
+        loadMyProfile()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(ProfileCell.self, forCellReuseIdentifier: Constants.profileCellIdentifier)
@@ -30,13 +31,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate {
         
     }
     
-    func loadUserProfile(with request: NSFetchRequest<UserProfile> = UserProfile.fetchRequest()) {
+    override func viewDidAppear(_ animated: Bool) {
+        print("Profile viewDidAppear")
+        tabBarController!.navigationItem.rightBarButtonItem = nil
+    }
+    
+    func loadMyProfile(with request: NSFetchRequest<Me> = Me.fetchRequest()) {
         let currentUserEmail = UserDefaults.standard.string(forKey: Constants.DefaultsKey.emailAddressKey)
         let predicate = NSPredicate(format: "emailAddress MATCHES %@", currentUserEmail!)
         request.predicate = predicate
         
         do {
-            userProfile = try context.fetch(request)
+            me = try context.fetch(request)
         } catch {
             print("Error decoding array. \(error)")
         }
@@ -71,11 +77,13 @@ extension ProfileViewController: UITableViewDataSource{
         
         if indexPath.row < self.tableView.numberOfSections{
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.profileCellIdentifier, for: indexPath) as! ProfileCell
-            let profile = userProfile[0]
             
-            cell.profileNameLabel.text = "\(profile.forename!) \(profile.surname!)"
-            cell.profileEmailLabel.text = "\(profile.emailAddress!)"
-
+            if me.isEmpty == false {
+                let profile = me[0]
+                cell.profileNameLabel.text = "\(profile.firstName!) \(profile.lastName!)"
+                cell.profileEmailLabel.text = profile.emailAddress!
+            }
+            
             return cell
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.logOutCellIdentifier, for: indexPath) as! LogOutCell

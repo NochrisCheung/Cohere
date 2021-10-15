@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 struct Constants {
     static let appName = "Cohere"
@@ -23,7 +24,10 @@ struct Constants {
     
     //MARK: Friend View
     static let friendCellIdentifier = "FriendReusableCell"
-
+    
+    //MARK: New Friend View
+    static let userCellIdentifier = "UserReusableCell"
+    
     //MARK: Profile View
     static let profileCellIdentifier = "ProfileReusableCell"
     static let logOutCellIdentifier = "LogOutResuableCell"
@@ -32,6 +36,8 @@ struct Constants {
     
     static let defaultProfilePicImage = UIImage(systemName: "person.crop.circle.fill")
     
+    static let firebaseDB = Firestore.firestore()
+        
     struct Color {
         static let logoColor = UIColor(red:  255/255, green: 149/255, blue: 0/255, alpha: 1)
         static let secondaryLogoColor = UIColor(red: 255/255, green: 225/255, blue: 182/255, alpha: 1)
@@ -43,11 +49,14 @@ struct Constants {
         struct LogOutButton {
             static let title = "Log Out"
         }
-        struct AddEventButton {
+        struct AddEventViewButton {
             static let addEventIconImage = UIImage(systemName: "plus.circle")
         }
-        struct AddFriendButton {
+        struct AddFriendViewButton {
             static let addFriendIconImage = UIImage(systemName: "person.crop.circle.badge.plus")
+        }
+        struct AddFriendButton {
+            static let addFriendIconImage = UIImage(systemName: "goforward.plus")
         }
     }
     

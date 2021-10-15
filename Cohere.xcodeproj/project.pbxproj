@@ -18,6 +18,8 @@
 		C29498DE2716E70B007A56A6 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29498DD2716E70B007A56A6 /* FriendsViewController.swift */; };
 		C29498E02716EA48007A56A6 /* FriendDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29498DF2716EA48007A56A6 /* FriendDetail.swift */; };
 		C29498E22716EB8F007A56A6 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29498E12716EB8F007A56A6 /* FriendCell.swift */; };
+		C2AB0AA827171776004D45A2 /* AddNewFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB0AA727171776004D45A2 /* AddNewFriendViewController.swift */; };
+		C2AB0AAE2718FD21004D45A2 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB0AAD2718FD21004D45A2 /* UserCell.swift */; };
 		C2B3ADB1270CAB84002C4CB9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3ADB0270CAB84002C4CB9 /* ProfileViewController.swift */; };
 		C2B3ADB7270DF6FA002C4CB9 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3ADB5270DF6FA002C4CB9 /* ProfileCell.swift */; };
 		C2B3ADBA270E684B002C4CB9 /* AddNewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3ADB9270E684A002C4CB9 /* AddNewEventViewController.swift */; };
@@ -49,6 +51,9 @@
 		C29498DD2716E70B007A56A6 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		C29498DF2716EA48007A56A6 /* FriendDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetail.swift; sourceTree = "<group>"; };
 		C29498E12716EB8F007A56A6 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		C2AB0AA727171776004D45A2 /* AddNewFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFriendViewController.swift; sourceTree = "<group>"; };
+		C2AB0AAC271786E3004D45A2 /* DataModel 1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 1.1.xcdatamodel"; sourceTree = "<group>"; };
+		C2AB0AAD2718FD21004D45A2 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		C2B3ADB0270CAB84002C4CB9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C2B3ADB5270DF6FA002C4CB9 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		C2B3ADB9270E684A002C4CB9 /* AddNewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewEventViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +105,7 @@
 				C2B3ADB9270E684A002C4CB9 /* AddNewEventViewController.swift */,
 				C294988727139993007A56A6 /* EventDetailViewController.swift */,
 				C29498DD2716E70B007A56A6 /* FriendsViewController.swift */,
+				C2AB0AA727171776004D45A2 /* AddNewFriendViewController.swift */,
 				C2B3ADB0270CAB84002C4CB9 /* ProfileViewController.swift */,
 			);
 			path = Controller;
@@ -109,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				C29498E12716EB8F007A56A6 /* FriendCell.swift */,
+				C2AB0AAD2718FD21004D45A2 /* UserCell.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -331,6 +338,7 @@
 				C269B7BD270B56BE00CC65C4 /* LogInAccountViewController.swift in Sources */,
 				C29498DE2716E70B007A56A6 /* FriendsViewController.swift in Sources */,
 				C2B3ADBA270E684B002C4CB9 /* AddNewEventViewController.swift in Sources */,
+				C2AB0AAE2718FD21004D45A2 /* UserCell.swift in Sources */,
 				C2F25830271346E1004BCDEA /* EventCell.swift in Sources */,
 				C2BCA54F2709CA5900CE6C08 /* RegisterAccountViewController.swift in Sources */,
 				C2B3ADB7270DF6FA002C4CB9 /* ProfileCell.swift in Sources */,
@@ -345,6 +353,7 @@
 				C2BCA54D2709CA5900CE6C08 /* SceneDelegate.swift in Sources */,
 				C238C294270BB1020001BAA4 /* HomeViewController.swift in Sources */,
 				C2B3ADBC270FB7D5002C4CB9 /* NewEventNameCell.swift in Sources */,
+				C2AB0AA827171776004D45A2 /* AddNewFriendViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -476,7 +485,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -502,6 +511,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -531,6 +541,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -571,9 +582,10 @@
 		C294988B2714D86E007A56A6 /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				C2AB0AAC271786E3004D45A2 /* DataModel 1.1.xcdatamodel */,
 				C294988C2714D86E007A56A6 /* DataModel.xcdatamodel */,
 			);
-			currentVersion = C294988C2714D86E007A56A6 /* DataModel.xcdatamodel */;
+			currentVersion = C2AB0AAC271786E3004D45A2 /* DataModel 1.1.xcdatamodel */;
 			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

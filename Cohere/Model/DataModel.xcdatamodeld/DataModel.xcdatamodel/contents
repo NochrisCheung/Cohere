@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Event" representedClassName="Event" syncable="YES" codeGenerationType="class">
+    <entity name="Events" representedClassName="Events" syncable="YES" codeGenerationType="class">
         <attribute name="address" optional="YES" attributeType="String"/>
         <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
-    <entity name="Friend" representedClassName="Friend" syncable="YES" codeGenerationType="class">
+    <entity name="Friends" representedClassName="Friends" syncable="YES" codeGenerationType="class">
         <attribute name="emailAddress" attributeType="String"/>
         <attribute name="forename" attributeType="String"/>
         <attribute name="surname" attributeType="String"/>
     </entity>
-    <entity name="UserProfile" representedClassName="UserProfile" syncable="YES" codeGenerationType="class">
+    <entity name="Me" representedClassName="Me" syncable="YES" codeGenerationType="class">
         <attribute name="emailAddress" attributeType="String"/>
         <attribute name="forename" attributeType="String"/>
+        <attribute name="surname" attributeType="String"/>
+    </entity>
+    <entity name="Users" representedClassName="Users" syncable="YES" codeGenerationType="class">
+        <attribute name="emailAddress" attributeType="String"/>
+        <attribute name="forename" attributeType="String"/>
+        <attribute name="isFriend" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="surname" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Event" positionX="-54" positionY="18" width="128" height="89"/>
-        <element name="UserProfile" positionX="-63" positionY="-18" width="128" height="74"/>
-        <element name="Friend" positionX="-36" positionY="45" width="128" height="74"/>
+        <element name="Events" positionX="-54" positionY="18" width="128" height="89"/>
+        <element name="Friends" positionX="-36" positionY="45" width="128" height="74"/>
+        <element name="Me" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="Users" positionX="-45" positionY="36" width="128" height="89"/>
     </elements>
 </model>

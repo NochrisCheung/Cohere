@@ -37,7 +37,7 @@ class ProfileCell: UITableViewCell {
     
     func configureprofilePicImageView() {
         profilePicImageView.image = Constants.defaultProfilePicImage!
-        profilePicImageView.tintColor = Constants.Color.secondaryLogoColor
+        profilePicImageView.tintColor = Constants.Color.logoColor
         
         profilePicImageView.translatesAutoresizingMaskIntoConstraints = false
         profilePicImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
@@ -48,7 +48,7 @@ class ProfileCell: UITableViewCell {
     }
     
     func configureprofileNameLabel() {
-        profileNameLabel.textColor = UIColor.systemGray
+        profileNameLabel.textColor = UIColor.label
         profileNameLabel.font = UIFont.boldSystemFont(ofSize: 16)
         
         profileNameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -61,7 +61,7 @@ class ProfileCell: UITableViewCell {
     }
     
     func configureprofileEmailLabel() {
-        profileEmailLabel.textColor = UIColor.lightGray
+        profileEmailLabel.textColor = UIColor.darkGray
         profileEmailLabel.text = UserDefaults.standard.string(forKey: Constants.DefaultsKey.emailAddressKey)
         
         profileEmailLabel.translatesAutoresizingMaskIntoConstraints = false

@@ -12,7 +12,7 @@ import SwipeCellKit
 class HomeViewController: UIViewController, UITableViewDelegate{
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var eventArray = [Event]()
+    var eventArray = [Events]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,7 +25,7 @@ class HomeViewController: UIViewController, UITableViewDelegate{
         tabBarController!.navigationItem.hidesBackButton = true
 
         tabBarController!.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: Constants.Button.AddEventButton.addEventIconImage,
+            image: Constants.Button.AddEventViewButton.addEventIconImage,
             style: .plain,
             target: self,
             action: #selector(addNewEventPressed)
@@ -43,7 +43,7 @@ class HomeViewController: UIViewController, UITableViewDelegate{
     override func viewDidAppear(_ animated: Bool) {
         print("Home viewDidAppear")
         tabBarController!.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: Constants.Button.AddEventButton.addEventIconImage,
+            image: Constants.Button.AddEventViewButton.addEventIconImage,
             style: .plain,
             target: self,
             action: #selector(addNewEventPressed)
@@ -71,7 +71,7 @@ class HomeViewController: UIViewController, UITableViewDelegate{
     }
     
     
-    func loadEvent(with request: NSFetchRequest<Event> = Event.fetchRequest()) {
+    func loadEvent(with request: NSFetchRequest<Events> = Events.fetchRequest()) {
         do {
             eventArray = try context.fetch(request)
         } catch {

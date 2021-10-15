@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class DayPickerCell: UITableViewCell {
         
     static let identifier = Constants.dayPickerCellIdentifier

@@ -30,6 +30,7 @@ class NewEventNameCell: UITableViewCell {
     func configureEventTextField() {
         eventTextField.textColor = UIColor.systemOrange
         eventTextField.placeholder = "New Event Name"
+        
         eventTextField.translatesAutoresizingMaskIntoConstraints = false
         eventTextField.leadingAnchor.constraint(equalTo: leadingAnchor , constant: 15).isActive = true
         eventTextField.trailingAnchor.constraint(equalTo: trailingAnchor , constant: -15).isActive = true

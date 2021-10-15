@@ -12,15 +12,15 @@ class RegisterAccountViewController: UIViewController {
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    @IBOutlet weak var forenameTextField: UITextField!
-    @IBOutlet weak var surnameTextField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorMessage: UILabel!
     
     @IBAction func registerPressed(_ sender: UIButton) {
         
-        if let forename = forenameTextField.text, let surname = surnameTextField.text, let email = emailTextField.text, let password = passwordTextField.text {
+        if let firstName = firstNameTextField.text, let lastName = lastNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let e = error {
                     self.errorMessage.isHidden = false
@@ -29,15 +29,23 @@ class RegisterAccountViewController: UIViewController {
                 } else {
                     //Navigate to user landing page
                     self.errorMessage.isHidden = true
-                    print("account register successful")
                     
-                    let newUser = UserProfile(context: self.context)
                     
-                    newUser.forename = forename
-                    newUser.surname = surname
+                    Constants.firebaseDB.collection("user").addDocument(data: ["firstname": firstName, "lastname": lastName, "uid": authResult!.user.uid ]) { (error) in
+                        if error != nil {
+                            print("User information saving error with reason:  \(String(describing: error))")
+                        }
+                    }
+
+                    let newUser = Me(context: self.context)
+                    
+                    newUser.uid = authResult!.user.uid
+                    newUser.firstName = firstName
+                    newUser.lastName = lastName
                     newUser.emailAddress = email
-                    self.saveUserProfile()
+                    self.saveMyProfile()
                     
+                    print("account register successful")
                     self.performSegue(withIdentifier: "RegisterSuccessfulSegue", sender: self)
                     
                 }
@@ -47,12 +55,12 @@ class RegisterAccountViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        print("Load Registration View")
     }
 
     //MARK: Model Manipulation Methods
     
-    func saveUserProfile() {
+    func saveMyProfile() {
         do {
             try context.save()
         } catch {

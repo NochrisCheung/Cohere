@@ -61,7 +61,7 @@ class EventCell: SwipeTableViewCell {
     
     func eventStartTimeConfiguration() {
 
-        eventStartTimeTextLabel.textColor = UIColor.lightGray
+        eventStartTimeTextLabel.textColor = UIColor.darkGray
 
         eventStartTimeTextLabel.translatesAutoresizingMaskIntoConstraints = false
         eventStartTimeTextLabel.leadingAnchor.constraint(equalTo: leadingAnchor , constant: 15).isActive = true

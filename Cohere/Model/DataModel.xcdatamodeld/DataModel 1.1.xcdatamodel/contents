@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AttendeeList" representedClassName="AttendeeList" syncable="YES" codeGenerationType="class">
+        <attribute name="attendanceStatus" optional="YES" attributeType="String"/>
+        <attribute name="eventUID" attributeType="String"/>
+        <attribute name="invitedUsersUID" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Events" representedClassName="Events" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="uid" attributeType="String"/>
+    </entity>
+    <entity name="Friends" representedClassName="Friends" syncable="YES" codeGenerationType="class">
+        <attribute name="emailAddress" attributeType="String"/>
+        <attribute name="firstName" attributeType="String"/>
+        <attribute name="lastName" attributeType="String"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String"/>
+        <attribute name="uid" attributeType="String"/>
+    </entity>
+    <entity name="Me" representedClassName="Me" syncable="YES" codeGenerationType="class">
+        <attribute name="emailAddress" attributeType="String"/>
+        <attribute name="firstName" attributeType="String"/>
+        <attribute name="lastName" attributeType="String"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String"/>
+        <attribute name="uid" attributeType="String"/>
+    </entity>
+    <entity name="Users" representedClassName="Users" syncable="YES" codeGenerationType="class">
+        <attribute name="emailAddress" attributeType="String"/>
+        <attribute name="firstName" attributeType="String"/>
+        <attribute name="isFriend" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lastName" attributeType="String"/>
+        <attribute name="pendingConnection" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String"/>
+        <attribute name="uid" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Events" positionX="-54" positionY="18" width="128" height="104"/>
+        <element name="Friends" positionX="-36" positionY="45" width="128" height="104"/>
+        <element name="Me" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="Users" positionX="-45" positionY="36" width="128" height="134"/>
+        <element name="AttendeeList" positionX="-36" positionY="63" width="128" height="74"/>
+    </elements>
+</model>
