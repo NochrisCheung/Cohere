@@ -127,11 +127,5 @@ class UserCell: UITableViewCell {
     func configureIsFriendImageView() {
         userConnectionStatusImageView.image = Constants.Button.AddFriendButton.isFriendPicImage
         userConnectionStatusImageView.tintColor = UIColor.systemGreen
-        
-//        userConnectionStatusImageView.translatesAutoresizingMaskIntoConstraints = false
-//        userConnectionStatusImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-//        userConnectionStatusImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
-//        userConnectionStatusImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -30).isActive = true
-//        userConnectionStatusImageView.widthAnchor.constraint(equalTo: userConnectionStatusImageView.heightAnchor).isActive = true
     }
 }

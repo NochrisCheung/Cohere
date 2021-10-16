@@ -31,11 +31,22 @@ class RegisterAccountViewController: UIViewController {
                     self.errorMessage.isHidden = true
                     
                     
-                    Constants.firebaseDB.collection("user").addDocument(data: ["firstName": firstName, "lastName": lastName, "uid": authResult!.user.uid , "emailAddress": email]) { (error) in
+                    Constants.firebaseDB.collection("user").document(authResult!.user.uid).setData([
+                        "firstName": firstName,
+                        "lastName": lastName,
+                        "uid": authResult!.user.uid ,
+                        "emailAddress": email
+                    ]) { error in
                         if error != nil {
                             print("User information saving error with reason:  \(String(describing: error))")
                         }
                     }
+                    
+//                    Constants.firebaseDB.collection("user").addDocument(data: ["firstName": firstName, "lastName": lastName, "uid": authResult!.user.uid , "emailAddress": email]) { (error) in
+//                        if error != nil {
+//                            print("User information saving error with reason:  \(String(describing: error))")
+//                        }
+//                    }
 
                     let newUser = Me(context: self.context)
                     

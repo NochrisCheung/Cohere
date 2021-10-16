@@ -292,6 +292,7 @@
                     <connections>
                         <segue destination="8OJ-dN-mWr" kind="relationship" relationship="viewControllers" id="kyb-hr-KEv"/>
                         <segue destination="BY0-XW-9nE" kind="relationship" relationship="viewControllers" id="BQm-db-VHr"/>
+                        <segue destination="Zxz-ZA-GQh" kind="relationship" relationship="viewControllers" id="tZg-Tr-oMg"/>
                         <segue destination="t6w-Fp-MTb" kind="relationship" relationship="viewControllers" id="bwJ-PD-rT1"/>
                     </connections>
                 </tabBarController>
@@ -558,7 +559,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jsS-T8-HAY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6418.840579710145" y="457.36607142857139"/>
+            <point key="canvasLocation" x="5574" y="666"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Af6-r4-9bS">
+            <objects>
+                <viewController id="Zxz-ZA-GQh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sun-iA-S4t">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="WdS-lq-tls">
+                                <rect key="frame" x="0.0" y="145" width="414" height="668"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3I-WR-coy">
+                                <rect key="frame" x="15" y="95" width="150" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9XF-D1-N4n"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9XF-D1-N4n" firstAttribute="trailing" secondItem="WdS-lq-tls" secondAttribute="trailing" id="Vxq-gd-abO"/>
+                            <constraint firstItem="WdS-lq-tls" firstAttribute="leading" secondItem="9XF-D1-N4n" secondAttribute="leading" id="W2D-xb-fiN"/>
+                            <constraint firstItem="WdS-lq-tls" firstAttribute="top" secondItem="b3I-WR-coy" secondAttribute="bottom" constant="20" id="eCG-hL-Ns1"/>
+                            <constraint firstItem="b3I-WR-coy" firstAttribute="leading" secondItem="9XF-D1-N4n" secondAttribute="leading" constant="15" id="hPG-FH-byk"/>
+                            <constraint firstItem="b3I-WR-coy" firstAttribute="top" secondItem="9XF-D1-N4n" secondAttribute="top" constant="7" id="sy6-eq-Y1P"/>
+                            <constraint firstItem="9XF-D1-N4n" firstAttribute="bottom" secondItem="WdS-lq-tls" secondAttribute="bottom" id="vYw-WP-Q2i"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="bell.fill" catalog="system" id="hMr-7l-Z9M"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8i1-0K-HJ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6419" y="447"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -566,6 +602,7 @@
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemOrangeColor"/>
     <resources>
+        <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="extended_logo" width="9908" height="4096"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
