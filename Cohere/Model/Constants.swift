@@ -36,6 +36,8 @@ struct Constants {
     
     static let defaultProfilePicImage = UIImage(systemName: "person.crop.circle.fill")
     
+    
+    
     static let firebaseDB = Firestore.firestore()
         
     struct Color {
@@ -56,7 +58,9 @@ struct Constants {
             static let addFriendIconImage = UIImage(systemName: "person.crop.circle.badge.plus")
         }
         struct AddFriendButton {
-            static let addFriendIconImage = UIImage(systemName: "goforward.plus")
+            static let addFriendIconImage = UIImage(systemName: "person.crop.circle.badge.plus")
+            static let pendingFriendInviteIconImage = UIImage(systemName: "person.crop.circle.badge.clock")
+            static let isFriendPicImage = UIImage(systemName: "person.crop.circle.badge.checkmark")
         }
     }
     

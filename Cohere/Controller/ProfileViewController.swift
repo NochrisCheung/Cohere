@@ -104,7 +104,5 @@ extension ProfileViewController: UITableViewDataSource{
         if (cell as? LogOutCell) != nil {
             self.logOut()
         }
-        
     }
-
 }

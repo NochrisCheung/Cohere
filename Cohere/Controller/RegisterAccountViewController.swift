@@ -31,7 +31,7 @@ class RegisterAccountViewController: UIViewController {
                     self.errorMessage.isHidden = true
                     
                     
-                    Constants.firebaseDB.collection("user").addDocument(data: ["firstname": firstName, "lastname": lastName, "uid": authResult!.user.uid ]) { (error) in
+                    Constants.firebaseDB.collection("user").addDocument(data: ["firstName": firstName, "lastName": lastName, "uid": authResult!.user.uid , "emailAddress": email]) { (error) in
                         if error != nil {
                             print("User information saving error with reason:  \(String(describing: error))")
                         }

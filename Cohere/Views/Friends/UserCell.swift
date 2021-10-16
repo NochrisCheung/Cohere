@@ -6,14 +6,22 @@
 //
 
 import UIKit
+protocol UserCellDelegate {
+    func getFriendsUID() -> [NSDictionary]
+    func getPendingUsersUID() -> [NSDictionary]
+    func sendConnectionInvite(userData: [String: String])
+}
 
 class UserCell: UITableViewCell {
 
     let identifier = Constants.userCellIdentifier
+    var delegate: UserCellDelegate?
+    var userData: [String: Any]?
     
     var userPicImageView: UIImageView! = UIImageView()
     var userNameLabel: UILabel! = UILabel()
-    var addUserButton: UIImageView! = UIImageView()
+    var userConnectionStatusImageView: UIImageView! = UIImageView()
+    var isFriendImageView: UIImageView! = UIImageView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -25,11 +33,11 @@ class UserCell: UITableViewCell {
         
         contentView.addSubview(userPicImageView)
         contentView.addSubview(userNameLabel)
-        contentView.addSubview(addUserButton)
+        contentView.addSubview(userConnectionStatusImageView)
         
         configureUserPicImageView()
         configureUserNameLabel()
-        configureAddUserButton()
+        configureUserConnectionStatusImageView()
     }
 
     required init?(coder: NSCoder){
@@ -59,24 +67,71 @@ class UserCell: UITableViewCell {
         userNameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
     }
     
+    func shouldConfigureAddFriendButton() -> Bool {
+        let friendsUID = delegate?.getFriendsUID()
+        let pendingUsersUID = delegate?.getPendingUsersUID()
+        
+        for uid in friendsUID! {
+//            print("\(String(describing: uid["uid"]!))")
+//            print("\(String(describing: userData!["uid"]!))")
+            if String(describing: userData!["uid"])  == String(describing: uid["uid"]) {
+                configureIsFriendImageView()
+                print("Is a friend: \(String(describing: uid["uid"]!))")
+                return false
+            }
+        }
+        
+        for uid in pendingUsersUID! {
+            if String(describing: userData!["uid"])  == String(describing: uid["uid"]) {
+                configurePendingConnection()
+                print("Is a pending connection: \(String(describing: uid["uid"]!))")
+                return false
+            }
+        }
+        
+        print("Is not a connection")
+        configureAddUserButton()
+        return true
+    }
+    
+    func configureUserConnectionStatusImageView() {
+        userConnectionStatusImageView.translatesAutoresizingMaskIntoConstraints = false
+        userConnectionStatusImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        userConnectionStatusImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
+        userConnectionStatusImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -30).isActive = true
+        userConnectionStatusImageView.widthAnchor.constraint(equalTo: userConnectionStatusImageView.heightAnchor).isActive = true
+    }
+    
     func configureAddUserButton() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-        addUserButton.isUserInteractionEnabled = true
-        addUserButton.addGestureRecognizer(tapGestureRecognizer)
+        userConnectionStatusImageView.isUserInteractionEnabled = true
+        userConnectionStatusImageView.addGestureRecognizer(tapGestureRecognizer)
         
-        addUserButton.image = Constants.Button.AddFriendButton.addFriendIconImage
+        userConnectionStatusImageView.image = Constants.Button.AddFriendButton.addFriendIconImage
+        userConnectionStatusImageView.tintColor = Constants.Color.logoColor
         
-        addUserButton.translatesAutoresizingMaskIntoConstraints = false
-        addUserButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        addUserButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
-        addUserButton.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -30).isActive = true
-        addUserButton.widthAnchor.constraint(equalTo: addUserButton.heightAnchor).isActive = true
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
-        addUserButton.tintColor = Constants.Color.secondaryLogoColor
-        addUserButton.isUserInteractionEnabled = false
-        // Need to work on send invite
-        //        delegate?.submitData()
+//        usersArray
+        delegate?.sendConnectionInvite(userData: self.userData as! [String: String])
+        configurePendingConnection()
+    }
+    
+    func configurePendingConnection(){
+        userConnectionStatusImageView.image = Constants.Button.AddFriendButton.pendingFriendInviteIconImage
+        userConnectionStatusImageView.tintColor = Constants.Color.secondaryLogoColor
+        userConnectionStatusImageView.isUserInteractionEnabled = false
+    }
+    
+    func configureIsFriendImageView() {
+        userConnectionStatusImageView.image = Constants.Button.AddFriendButton.isFriendPicImage
+        userConnectionStatusImageView.tintColor = UIColor.systemGreen
+        
+//        userConnectionStatusImageView.translatesAutoresizingMaskIntoConstraints = false
+//        userConnectionStatusImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+//        userConnectionStatusImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
+//        userConnectionStatusImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -30).isActive = true
+//        userConnectionStatusImageView.widthAnchor.constraint(equalTo: userConnectionStatusImageView.heightAnchor).isActive = true
     }
 }

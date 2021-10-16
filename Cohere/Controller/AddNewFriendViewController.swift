@@ -9,16 +9,17 @@ import UIKit
 import CoreData
 import Firebase
 
-protocol AddNewFriendViewControllerDelegate {
-    func popOverDismissed()
-//    func checkIsFriend()
-}
+//protocol AddNewFriendViewControllerDelegate {
+//    func popOverDismissed()
+//}
 
 class AddNewFriendViewController: UIViewController, UITableViewDelegate {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    private var userArray = [Users]()
-    private var databaseUserArray: [[String: Any]] = []
+    private var myUID: [NSDictionary] = []
+    private var friendsUIDArray: [NSDictionary] = []
+    private var pendingUsersUIDArray: [NSDictionary] = []
+    private var firebaseUserArray: [[String: Any]] = []
     private var searchedText: String?
     
     @IBOutlet weak var tableView: UITableView!
@@ -29,47 +30,86 @@ class AddNewFriendViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad(){
         super.viewDidLoad()
         
-
+        loadMe()
+        loadFriendsUID()
+        loadPendingUsersUID()
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.register(UserCell.self, forCellReuseIdentifier: Constants.userCellIdentifier)
     }
     
     func getMatchedUserDatafromFireBase(completion: @escaping () -> Void) {
-        Constants.firebaseDB.collection("user").whereField("firstname", isEqualTo: searchedText!)
+        Constants.firebaseDB.collection("user").whereField("firstName", isEqualTo: searchedText!)
             .getDocuments { (querySnapshot, err) in
-                let dispatchTime = DispatchTime.now() + 2
-                DispatchQueue.global(qos: .background).asyncAfter(deadline: dispatchTime) {
-                    if let err = err {
-                        print("Error getting documents: \(err)")
-                    } else {
-                        for document in querySnapshot!.documents {
-                            print("\(document.documentID) => \(document.data())")
-                            self.databaseUserArray.append(document.data())
+
+            if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+//                        print("\(document.documentID) => \(document.data())")
+                        if document.data()["uid"] as! String != self.myUID[0]["uid"] as! String{
+                            self.firebaseUserArray.append(document.data())
                         }
                     }
-                    DispatchQueue.main.async {
-                        completion()
-                    }
                 }
+            DispatchQueue.main.async {
+                completion()
+            }
         }
     }
-    
-    //MARK: Core Data Manipulation Method
-    
-    func saveEvent() {
 
+    //MARK: Core Data Manipulation Method
+    func loadMe(with request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>(entityName: "Me")) {
+
+        request.propertiesToFetch = ["uid"]
+        request.resultType = .dictionaryResultType
+        
+        do {
+            myUID = try context.fetch(request) as! [NSDictionary]
+        } catch {
+            print("Error decoding array. \(error)")
+        }
+        
+        print("Fetched data: \(myUID)")
+    }
+    
+    func saveUser() {
         do {
             try context.save()
         } catch {
             print("Error decoding array. \(error)")
         }
-
+//        tableView.reloadData()
+        print("Saved User")
     }
+    
+    func loadPendingUsersUID(with request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")) {
 
-    func loadUser(with request: NSFetchRequest<Users> = Users.fetchRequest()) {
+        request.predicate = NSPredicate(format: "pendingConnection == true")
+        request.propertiesToFetch = ["uid"]
+        request.resultType = .dictionaryResultType
+        
         do {
-            userArray = try context.fetch(request)
+            pendingUsersUIDArray = try context.fetch(request) as! [NSDictionary]
         } catch {
             print("Error decoding array. \(error)")
         }
+        
+        print("Fetched data: \(pendingUsersUIDArray)")
+    }
+
+    func loadFriendsUID(with request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>(entityName: "Friends")) {
+
+        request.propertiesToFetch = ["uid"]
+        request.resultType = .dictionaryResultType
+        
+        do {
+            friendsUIDArray = try context.fetch(request) as! [NSDictionary]
+        } catch {
+            print("Error decoding array. \(error)")
+        }
+        
+        print("Fetched data: \(friendsUIDArray)")
     }
 }
 
@@ -77,131 +117,69 @@ class AddNewFriendViewController: UIViewController, UITableViewDelegate {
 extension AddNewFriendViewController: UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         searchedText = searchBar.text
         
         getMatchedUserDatafromFireBase() {
-            print("Data:\(self.databaseUserArray)")
-            self.loadUser()
-        
-            if self.databaseUserArray.count > 0 {
-                self.tableView.dataSource = self
-                self.tableView.delegate = self
-                self.tableView.register(UserCell.self, forCellReuseIdentifier: Constants.userCellIdentifier)
-            }
-
+            print("Data:\(self.firebaseUserArray)")
             self.tableView.reloadData()
         }
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            firebaseUserArray = []
+            tableView.register(UserCell.self, forCellReuseIdentifier: Constants.userCellIdentifier)
+            tableView.reloadData()
+            searchBar.resignFirstResponder()
+        }
+    }
 }
-//    func passSubmitCriteria(newEvent: EventRecord) -> Bool {
-//
-//        print(String(describing: newEvent.name))
-//        print(String(describing: newEvent.startTime))
-//        print(String(describing: newEvent.endTime))
-//        print(String(describing: newEvent.address))
-//
-//        if newEvent.name == "" || newEvent.startTime == nil || newEvent.endTime == nil || newEvent.address == "" {
-//            //need to display this error message
-//            print("Please fill in all the essential event information")
-//            return false
-//        } else if newEvent.startTime! >= newEvent.endTime! {
-//            //need to eventually move to auto-prevent
-//            print("Please make sure end time is set after start time")
-//            return false
-//        } else {
-//            return true
-//        }
-//    }
-//
-//}
-//
-//// MARK: Table View Methods
+
+// MARK: Table View Methods
 extension AddNewFriendViewController: UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //hard code 2 row for now: profile and logout
-        return databaseUserArray.count
+        return firebaseUserArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.userCellIdentifier, for: indexPath) as! UserCell
-
-        if indexPath.row <= databaseUserArray.count {
-//            let account = userArray[indexPath.row]
-            let userData = databaseUserArray[indexPath.row]
-            print("Name: \(userData["firstname"]!) \(userData["lastname"]!)")
-            cell.userNameLabel.text = "\(userData["firstname"]!) \(userData["lastname"]!)"
-////            cell.profileEmailLabel.text = "\(profile.emailAddress!)"
-            return cell
-        }
+        cell.delegate = self
+        cell.userData = firebaseUserArray[indexPath.row]
+        
+//        print("Name: \(userData["firstname"]!) \(userData["lastname"]!)")
+        cell.userNameLabel.text = "\(cell.userData!["firstName"]!) \(cell.userData!["lastName"]!)"
+        cell.shouldConfigureAddFriendButton()
         
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-//        let cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
-
     }
 }
 
-//
-
-
-
-//
-//// MARK: Submit Button Delegate
-//
-//extension AddNewEventViewController: SubmitButtonCellDelegate{
-//    //need to change to some more dynamic interface
-//    func submitData(){
-//
-//        var newEventRecord = EventRecord()
-//        let cells = self.tableView.visibleCells
-//
-//        for cell in cells {
-//            let identifier = cell.reuseIdentifier
-//
-//            switch identifier {
-//            case Constants.newEventNameCellIdentifier:
-//                let thisCell = cell as! NewEventNameCell
-//                //need to show error message if no text
-//                newEventRecord.name = thisCell.eventTextField.text
-//                print("event name: \(String(describing: newEventRecord.name))")
-//            case Constants.dayPickerCellIdentifier:
-//                let thisCell = cell as! DayPickerCell
-//                if thisCell.dayPickerTextLabel.text == "Start Date" {
-//                    newEventRecord.startTime = thisCell.selectedDateTime
-//                    print("start time: \(String(describing: newEventRecord.startTime))")
-//                } else {
-//                    newEventRecord.endTime = thisCell.selectedDateTime
-//                    print("end time: \(String(describing: newEventRecord.endTime))")
-//                }
-//            case Constants.newEventAddressCellIdentifier:
-//                let thisCell = cell as! NewEventAddressCell
-//                //need to show error message if no text
-//                newEventRecord.address = thisCell.eventTextField.text
-//                print("event Address: \(String(describing: newEventRecord.address))")
-//            default:
-//                print("nothing")
-//            }
-//        }
-//
-//        if self.passSubmitCriteria(newEvent: newEventRecord) {
-//
-//            let newEventData = Event(context: self.context)
-//            newEventData.name = newEventRecord.name
-//            newEventData.startTime = newEventRecord.startTime
-//            newEventData.endTime = newEventRecord.endTime
-//            newEventData.address = newEventRecord.address
-//
-//            self.saveEvent()
-//            delegate?.popOverDismissed()
-//            self.dismiss(animated: true, completion: nil)
-//        }
-//    }
-//}
-
+extension AddNewFriendViewController: UserCellDelegate {
+    
+    func getFriendsUID() -> [NSDictionary]{
+        print("In getFriendsUID: \(friendsUIDArray)")
+        return friendsUIDArray
+    }
+    
+    func getPendingUsersUID() -> [NSDictionary]{
+        print("In getFriendsUID: \(pendingUsersUIDArray)")
+        return pendingUsersUIDArray
+    }
+    
+    func sendConnectionInvite(userData: [String: String]) {
+        let invitedUserData = Users(context: self.context)
+        
+        invitedUserData.uid = userData["uid"]!
+        invitedUserData.firstName = userData["firstName"]!
+        invitedUserData.lastName = userData["lastName"]!
+        invitedUserData.emailAddress = userData["emailAddress"]!
+        invitedUserData.pendingConnection = true
+        
+        self.saveUser()
+    }
+}
